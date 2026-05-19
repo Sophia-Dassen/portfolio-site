@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <!-- ========================================= -->
+    <!-- Meta -->
+    <!-- ========================================= -->
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        Skill Standardization Pipeline | Sophia Dassen
+    </title>
+
+    <meta 
+        name="description" 
+        content="End-to-end skill standardization pipeline for Data Analyst job postings."
+    >
+
+    <!-- ========================================= -->
+    <!-- Fonts -->
+    <!-- ========================================= -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+        rel="stylesheet"
+    >
+
+    <!-- PhotoSwipe for image expansion -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.css"
+    >
+
+    <!-- shared/shared.css -->
+    <link rel="stylesheet" href="../shared/css/styles.css">
+
+    <!-- Prism for syntax highlighting -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/prismjs/themes/prism.min.css"
+    />
+
+    </head>
+
+<body>
+
+  <!-- ========================================= -->
+  <!-- Sticky Top Navbar -->
+  <!-- ========================================= -->
+
+  <header class="top-navbar">
+
+    <div class="top-navbar-inner">
+
+      <a 
+        href="https://dassensophia.wixstudio.com/portfolio-site"
+        class="nav-link"
+      >
+
+        <svg
+          class="nav-link-icon"
+          preserveAspectRatio="xMidYMid meet"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="6 8.59 12 7.41"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+          ></path>
+        </svg>
+
+        <span>
+          Back to Portfolio
+        </span>
+
+      </a>
+
+      <button class="toc-button">
+
+        <span>
+          Contents
+        </span>
+
+        <svg
+          class="toc-button-icon"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path
+            d="M5.75 2.25h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5m0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5M2.25 14a.997.997 0 0 1-1-1 .997.997 0 0 1 1-1 .997.997 0 0 1 1 1 .997.997 0 0 1-1 1m1-6a.997.997 0 0 1-1 1 .997.997 0 0 1-1-1 .997.997 0 0 1 1-1 .997.997 0 0 1 1 1m-1-4a.997.997 0 0 1-1-1 .997.997 0 0 1 1-1 .997.997 0 0 1 1 1 .997.997 0 0 1-1 1"
+            fill="currentColor"
+          />
+        </svg>
+
+      </button>
+
+    </div>
+
+  </header>
+
+
+  <!-- ========================================= -->
+  <!-- Main Page Content -->
+  <!-- ========================================= -->
+
+  <main class="page-wrapper">
+
+    <!-- ========================================= -->
+    <!-- Floating TOC button -->
+    <!-- ========================================= -->
+    <button class="floating-toc-button">
+
+      <svg 
+        class="floating-toc-icon"
+        xmlns="http://www.w3.org/2000/svg" 
+        viewBox="0 0 18 18" 
+        fill="none"
+      >
+        <rect 
+          class="floating-toc-icon-bg"  
+          x="1.75" 
+          y="1.75" 
+          width="14.5" 
+          height="14.5" 
+          rx="3.25" 
+        />
+
+        <path 
+          class="floating-toc-icon-lines"  
+          d="M7.368 5.646h4.946a.436.436 0 0 1 .436.437.44.44 0 0 1-.436.438H7.368a.436.436 0 0 1-.436-.438.44.44 0 0 1 .436-.437m0 2.917h4.946A.436.436 0 0 1 12.75 9a.44.44 0 0 1-.436.438H7.368a.436.436 0 0 1-.308-.747.44.44 0 0 1 .308-.129m0 2.916h4.946a.436.436 0 0 1 .308.747.44.44 0 0 1-.308.128H7.368a.436.436 0 0 1-.436-.437.437.437 0 0 1 .436-.438M5.332 12.5a.58.58 0 0 1-.582-.583.583.583 0 1 1 .995.412.6.6 0 0 1-.413.171M5.914 9A.583.583 0 1 1 4.75 9a.583.583 0 1 1 1.164 0m-.582-2.333a.58.58 0 0 1-.582-.583.583.583 0 1 1 1.164 0 .583.583 0 0 1-.582.583" 
+        />
+      
+      </svg>
+
+    </button>
+
+    <!-- ======================= HERO SECTION ======================= -->
+    <section class="hero-section">
+    
+      <div class="hero-content">
+    
+        <!-- LEFT COLUMN -->
+        <div class="hero-text-column">
+    
+          <div class="hero-text-content">
+    
+            <h1 class="hero-title">
+              Skill Standardization Pipeline
+            </h1>
+    
+            <p class="hero-description">
+              Taxonomy-driven standardization pipeline built in Excel 
+              for dimensional skill demand analysis.
+            </p>
+    
+          </div>
+    
+          <div class="hero-cta-wrapper">
+    
+            <a href="#" class="hero-button" id="scroll-to-architecture">
+
+              <span>
+                Explore architecture
+              </span>
+            
+              <svg
+                class="hero-button-icon"
+                preserveAspectRatio="xMidYMid meet"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="6 8.59 12 7.41"
+                aria-hidden="true"
+              >
+                <path
+                  fill="currentColor"
+                  d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                ></path>
+              </svg>
+            
+            </a>
+    
+          </div>
+    
+        </div>
+    
+        <!-- RIGHT COLUMN -->
+        <div class="hero-image-column">
+    
+            <div>
+
+                <a
+                href="assets/images/pipeline-diagram.svg"
+                data-pswp-width="2250"
+                data-pswp-height="1500"
+                target="_blank"
+                >
+
+                <img
+                    src="assets/images/pipeline-diagram.svg"
+                    alt="Skill standardization pipeline architecture"
+                    class="zoomable-image hero-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+            </div>
+    
+        </div>
+    
+      </div>
+    
+    </section>
+    
+    <div class="doc-container">
+      
+        <!-- ======================= SECTION 1 ======================= -->
+
+        <h5 id="raw-skill-mentions-dataset">
+            1. Raw Skill Mentions Dataset
+        </h5>
+
+        <p class="section-intro">
+            The skill standardization pipeline imports a single CSV file that contains raw skill 
+            mentions extracted from job postings.
+        </p>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="dataset-context">
+
+            <h6>
+                Dataset context
+            </h6>
+
+            <p>
+                The imported CSV dataset is the output of a Python script that extracts highlighted 
+                skill mentions from annotated job posting excerpts.
+            </p>
+
+            <p>
+                The script processes structured Word documents with job posting metadata and posting 
+                excerpts with highlighted skill mentions, where highlight color encodes the observed 
+                skill type (hard or soft).
+            </p>
+
+            <p>
+                Extracted skill mentions are written to a CSV file with the fields: <code>job_id</code>,
+                <code>extracted_skill</code>, <code>observed_skill_type</code>, where each row 
+                represents a single observed skill occurrence.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+            <div class="image-container compact-image">
+
+                <a
+                    href="assets/images/annotated-job-posting.webp"
+                    data-pswp-width="2366"
+                    data-pswp-height="1564"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/annotated-job-posting.webp"
+                    alt="Example job posting excerpt with highlighted skill mentions"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 1. Example job posting excerpt with highlighted skill mentions.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="input-schema">
+
+            <h6>
+                Input schema
+            </h6>
+
+            <p>
+                Each raw skill mention is defined by the following fields: 
+            </p>
+
+            <ul>
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>job_id:</code> unique job posting identifier
+                </span>
+                </li>
+            
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>extracted_skill:</code> exact skill phrase used
+                </span>
+                </li>
+            
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>observed_skill_type:</code> skill type observed during annotation (hard or 
+                    soft). Used for preliminary grouping and filtering. Final classification is determined by <code>standardized_skill_type</code> 
+                    in the taxonomy. This separates initial observations from authoritative classification 
+                    decisions.
+                </span>
+                </li>
+            </ul>
+            
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container compact-image">
+
+                <a
+                    href="assets/images/import-dataset-example-rows.webp"
+                    data-pswp-width="1881"
+                    data-pswp-height="791"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/import-dataset-example-rows.webp"
+                    alt="Example rows from the imported raw skill mentions dataset"
+                    class="zoomable-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 2. Example rows from the imported raw skill mentions dataset.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SECTION 2 ======================= --> 
+        
+        <h5 id="unmapped-raw-skills-queue">
+            2. Unmapped Raw Skills Queue
+        </h5>
+        
+        <p class="section-intro">
+            A refresh-based queue is used to detect unmapped raw skill mentions that have not yet 
+            entered the standardization pipeline.
+        </p>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="unmapped-raw-skill-definition">
+
+            <h6>
+                Definition
+            </h6>
+
+            <p>
+                An unmapped raw skill is any row of the imported dataset that is not present in the 
+                raw-to-preliminary mapping table. 
+            </p>
+    
+            <p>
+                Unmapped raw skills can occur in two situations:
+            </p>
+
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        when rows are added to the imported CSV file as new job postings get processed 
+                        upstream
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        when a mapping is modified in the raw-to-preliminary mapping table so that it 
+                        no longer matches an existing raw skill mention
+                    </span>
+                </li>
+            </ul>            
+
+            <p>
+                <i>Note: A raw skill is considered unmapped only if it is not present in the 
+                raw-to-preliminary mapping table. Raw skills with empty preliminary or standardized skill 
+                assignments are treated as an invalid mapping rather than an unmapped skill.</i>
+            </p>            
+
+        </section>        
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="raw-skills-queue-implementation">
+            
+            <h6>
+                Implementation
+            </h6>
+  
+            <p>
+                The queue is implemented in Power Query via a left anti join on the raw skill mentions 
+                dataset and the raw-to-preliminary mapping table. The join uses a composite key of 
+                <code>job_id</code>, <code>extracted_skill</code>, and <code>observed_skill_type</code>, 
+                reflecting the raw skill mention schema defined by the input dataset.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/unmapped-raw-skills-queue.gif"
+                    data-pswp-width="1051"
+                    data-pswp-height="692"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/unmapped-raw-skills-queue.gif"
+                    alt="Queue updating as new job postings are processed upstream"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 3. Queue updating as new job postings are processed upstream.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="raw-skills-queue-limitations">
+            
+            <h6>
+                Operational limitations
+            </h6>
+
+            <p>
+                The refresh-based queue design introduces two operational limitations:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Since the queue and corresponding mapping table are located on separate sheets, 
+                        monitoring mapping completeness requires manual sheet navigation.
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        If an already mapped raw skill is modified within the mapping table, the queue 
+                        does not include the affected raw skill mention until the next refresh. 
+                        
+                        <div style="height: 8px"></div>
+                        
+                        This may cause a temporary discrepancy between perceived and true mapping 
+                        completeness.
+                    </span>
+                </li>
+            </ul>
+        
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="queue-status-indicator">
+            
+            <h6>
+                Queue status indicator
+            </h6>
+
+            <p>
+                To address these operational limitations, a real-time queue status indicator is added 
+                above the mapping table. 
+            </p>
+            
+            <p>
+                The status indicator complements the queue by:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        displaying the count of unmapped raw skills directly above the mapping table, 
+                        to quantify standardization progress.
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        providing instant feedback if an already mapped raw skill is modified and no 
+                        longer matches the source data.
+                    </span>
+                </li>
+            </ul>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/queue-status-indicator.gif"
+                    data-pswp-width="1074"
+                    data-pswp-height="742"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/queue-status-indicator.gif"
+                    alt="Queue status indicator updating as an already mapped raw skill gets modified"
+                    class="zoomable-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 4. Queue status indicator updating as an already mapped raw skill gets modified.
+                </div>
+
+            </div>
+            
+            <p style="margin-bottom: 5px;">
+                The queue status indicator is <b>implemented</b> as a dynamic formula that filters the imported 
+                raw skill mentions dataset for rows without a match in the raw-to-preliminary mapping 
+                table. The formula counts the filtered rows and outputs the number of unmapped raw skills 
+                above the mapping table. 
+            </p> 
+            
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 280px;">
+
+                    <pre><code class="language-excel">// Queue status indicator formula
+=LET(
+   unmapped_skills_count,
+
+   ROWS(
+      FILTER(
+         raw_skills_import[#Data],
+         BYROW(
+            raw_skills_import[#Data],           
+            LAMBDA(
+               row,           
+               NOT(
+                  ISNUMBER(
+                     XMATCH(
+                        1,
+                        (RawToPreliminarySkills[job_id] = INDEX(row, 1)) *
+                        (RawToPreliminarySkills[extracted_skill] = INDEX(row, 2)) *
+                        (RawToPreliminarySkills[observed_skill_type] = INDEX(row, 3))
+         ))))), 
+         NA()
+      )
+   ),
+
+   "Unmapped raw skills: " &
+   IFNA(unmapped_skills_count, "0 ✓")
+)</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+            
+        </section>
+
+        <!-- ======================= SECTION 3 ======================= --> 
+        
+        <h5 id="raw-to-preliminary-mapping">
+            3. Raw-to-Preliminary Skill Mapping Table
+        </h5>
+        
+        <p class="section-intro">
+            The first phase of skill standardization takes place in the raw-to-preliminary mapping table.
+        </p>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="preliminary-standardization">
+            
+            <h6>
+                Preliminary standardization
+            </h6>
+
+            <p> 
+                For each imported raw skill mention, the user enters a preliminary standardization, e.g.:
+            </p>
+            
+            <ul>
+                <li style="line-height: 1.4;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        “Support multiple functions”
+                        <span style="white-space: nowrap;">
+                            → <i>Cross-Functional Collaboration</i>
+                        </span>
+                    </span>
+                </li>
+            
+                <li style="line-height: 1.4; margin-top: 4px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        “Create relevant Documentation”
+                        <span style="white-space: nowrap;">
+                            → <i>Technical Documentation</i>
+                        </span>
+                    </span>
+                </li>
+                
+                <li style="line-height: 1.4; margin-top: 4px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        “Ensure data accuracy and integrity”
+                        <span style="white-space: nowrap;">
+                            → <i>Data Integrity Control</i>
+                        </span>
+                    </span>
+                </li>
+            </ul> 
+        
+                <p>
+                    This phase aims to eliminate surface-level variation across skill mentions, serving 
+                    as an initial vocabulary normalization layer. 
+                </p>
+                
+                <p>
+                    Since preliminary skills are meant to stay close to the original phrasing, they 
+                    retain semantic granularity. The second standardization phase then consolidates 
+                    synonymous preliminary skills, producing a more analytically meaningful final dataset.
+                </p>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="raw-to-prelim-mapping-workflow">
+            
+            <h6>
+                Mapping workflow
+            </h6>
+
+            <p>
+                The mapping workflow starts by copying unmapped raw skill mentions from the queue into 
+                the mapping table. This human-in-the-loop workflow helps prevent accidental overwrites 
+                that may result from automatic row insertion.
+            </p>
+            
+            <p>
+                All original <code>job_id</code>, <code>extracted_skill</code>, and 
+                <code>observed_skill_type</code> values get copied into the mapping table. As a result, 
+                each skill mapping contains a complete source record and maintains a traceable data 
+                lineage.
+            </p>
+            
+            <p>
+                Once a raw skill mention is copied into the mapping table, the user enters a 
+                <code>preliminary_skill</code>. The goal is to identify the core competency within the 
+                extracted phrase, while preserving contextual nuance. 
+            </p>
+            
+            <p>
+                The following example illustrates the variation in raw job posting phrases that all 
+                map to the same preliminary skill ("Technical Documentation").
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/prelim_mapping_example.png"
+                    data-pswp-src="assets/images/prelim_mapping_example.png"
+                    data-pswp-width="1511"
+                    data-pswp-height="596"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/prelim_mapping_example.png"
+                    alt="Example of a single preliminary mapping being assigned to diverse job posting
+                    extractions"
+                    class="zoomable-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 5. Example of a single preliminary mapping being assigned to diverse job posting
+                    extractions.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="standardized-skill-lookup">
+
+            <h6>
+                Standardized skill lookup
+            </h6>
+
+            <p>
+                The resulting preliminary skills are later used in the second mapping phase, where 
+                each unique <code>preliminary_skill</code> is assigned a taxonomy-aligned 
+                <code>standardized_skill</code>. 
+            </p>
+
+            <p>
+                The raw-to-preliminary mapping table automatically fetches the final standardizations 
+                using XLOOKUP against the preliminary-to-standardized mapping table.
+            </p>
+
+            <p>
+                This lookup architecture achieves:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>Centralized standardization logic.</b> A unique preliminary skill is 
+                        standardized only once, and the standardization applies to every instance of the 
+                        preliminary skill.
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>Mapping drift prevention.</b> The final standardized skill is derived rather 
+                        than manually entered, which protects against inconsistent 
+                        preliminary → standardized mappings. 
+                    </span>
+                </li>
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>Full pipeline visibility.</b> The lookup keeps the full raw → 
+                        preliminary → standardized skill transformation visible from a single table. 
+                    </span>
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="raw-to-prelim-validation">
+            
+            <h6>
+                Validation behaviour
+            </h6>
+
+            <p>
+                The mapping table contains two validation columns, producing row-level data integrity 
+                metadata:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>valid_mapping:</code> contains Boolean flags indicating mapping success 
+                        or failure 
+                    </span>
+                </li>
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>error_message:</code> displays the exact issue(s) causing a mapping failure 
+                    </span>
+                </li>
+            </ul>
+
+            <table class="validation-table">
+
+                <thead>
+                    <tr>
+                        <th>Validation error</th>
+                        <th>Trigger condition</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Unknown raw skill</td>
+                        <td><code>job_id</code>, <code>extracted_skill</code>,
+                            <code>observed_skill_type</code> combination not found in imported dataset</td>
+                    </tr>
+
+                    <tr>
+                        <td>Duplicate raw skill</td>
+                        <td>Multiple mappings exist for same raw skill</td>
+                    </tr>
+
+                    <tr>
+                        <td>Empty preliminary skill</td>
+                        <td>Preliminary skill field is blank (no preliminary standardization
+                            entered yet)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Unmapped preliminary skill</td>
+                        <td>Preliminary skill is not mapped to a standardized skill
+                            in the second-stage mapping table</td>
+                    </tr>
+
+                    <tr>
+                        <td>Overwritten standardization lookup formula</td>
+                        <td>Standardized skill lookup formula was manually deleted or replaced</td>
+                    </tr>
+
+                    <tr>
+                        <td>Empty standardized skill</td>
+                        <td>Standardized skill field is blank because the preliminary skill is empty
+                            or unmapped</td>
+                    </tr>
+
+                    <tr>
+                        <td>Invalid standardized skill</td>
+                        <td>Standardized skill has a taxonomy-level error (duplicate skill or invalid
+                            classification)</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+    
+            <p style="padding-top: 12px; padding-bottom: 0; margin-bottom: 0;">
+                The mapping integrity validation is <b>implemented</b> as follows: 
+            </p>
+
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 340px;">
+
+                    <pre><code class="language-excel">// Formula in valid_mapping column
+=AND(
+   IS_VALID_RAW_SKILL([@[job_id]], [@[extracted_skill]], [@[observed_skill_type]]), 
+   IS_UNIQUE_RAW_SKILL([@[job_id]], [@[extracted_skill]], [@[observed_skill_type]]),    
+   NOT(IS_EMPTY([@[preliminary_skill]])),    
+   IS_MAPPED_PRELIMINARY_SKILL([@[preliminary_skill]]),    
+   NOT(ISNA(FORMULATEXT([@[standardized_skill]]))),    
+   NOT(IS_EMPTY([@[standardized_skill]])),   
+   IS_VALID_STANDARDIZED_SKILL([@[standardized_skill]])
+)
+
+
+// IS_VALID_RAW_SKILL
+=LAMBDA(
+   job_id, extracted_skill, observed_skill_type,
+
+   ISNUMBER(
+      XMATCH(
+         1,
+         (raw_skills_import[job_id] = job_id) *
+         (raw_skills_import[extracted_skill] = extracted_skill) *
+         (raw_skills_import[observed_skill_type] = observed_skill_type)
+      )
+   )
+)
+
+
+// IS_UNIQUE_RAW_SKILL
+=LAMBDA(
+   job_id, extracted_skill, observed_skill_type,
+
+   AND(
+      IS_VALID_RAW_SKILL(
+         job_id, extracted_skill, observed_skill_type
+      ),
+      COUNTIFS(
+         RawToPreliminarySkills[job_id], job_id,
+         RawToPreliminarySkills[extracted_skill], extracted_skill,
+         RawToPreliminarySkills[observed_skill_type], observed_skill_type
+      ) = 1
+   )
+)
+
+
+// IS_EMPTY
+=LAMBDA(
+   cell,
+    
+   LEN(
+      TRIM(
+         CLEAN(
+            // replace non-breaking space with standard space
+            SUBSTITUTE(
+               cell, CHAR(160), " "
+      )))
+   ) = 0
+)
+
+
+// IS_MAPPED_PRELIMINARY_SKILL
+=LAMBDA(
+   preliminary_skill,
+
+   IFNA(
+      XLOOKUP(
+         preliminary_skill,
+         PreliminaryToStandardSkills[preliminary_skill],
+         PreliminaryToStandardSkills[valid_mapping]
+      ),
+      FALSE
+   )
+) 
+
+
+// IS_VALID_STANDARDIZED_SKILL
+=LAMBDA(
+   standard_skill,
+
+   LET(
+      is_valid,
+      
+      XLOOKUP(
+         standard_skill,
+         SkillTaxonomy[standardized_skill],
+         (SkillTaxonomy[valid_standardized_skill] * SkillTaxonomy[valid_classification]) = 1
+      ),
+
+      IFNA(
+         is_valid,
+         FALSE
+      )
+   )
+) 
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </section>
+
+    </div>
+
+  </main>
+
+  <!-- ========================================= -->
+  <!-- TOC Overlay -->
+  <!-- ========================================= -->
+
+  <div class="toc-overlay"></div>
+
+  <aside class="toc-panel">
+
+    <div class="toc-panel-header">
+
+      <h3 class="toc-panel-title">
+        Contents
+      </h3>
+
+      <button class="toc-close-button">
+
+        <img
+            src="../shared/assets/icons/close.svg"
+            alt=""
+            aria-hidden="true"
+            style="border: none;"
+        >
+
+      </button>
+
+    </div>
+
+        <!-- TOC LIST ITEMS -->
+
+        <nav class="toc-nav">
+
+            <a href="#raw-skill-mentions-dataset" class="toc-link toc-link-level-1">
+                1. Raw Skill Mentions Dataset
+            </a>
+
+            <a href="#dataset-context" class="toc-link toc-link-level-2">
+                Dataset context
+            </a>
+
+            <a href="#input-schema" class="toc-link toc-link-level-2">
+                Input schema
+            </a>
+
+            <a href="#unmapped-raw-skills-queue" class="toc-link toc-link-level-1">
+                2. Unmapped Raw Skills Queue
+            </a>
+
+            <a href="#unmapped-raw-skill-definition" class="toc-link toc-link-level-2">
+                Definition
+            </a>
+
+            <a href="#raw-skills-queue-implementation" class="toc-link toc-link-level-2">
+                Implementation
+            </a>
+
+            <a href="#raw-skills-queue-limitations" class="toc-link toc-link-level-2">
+                Operational limitations
+            </a>
+
+            <a href="#queue-status-indicator" class="toc-link toc-link-level-2">
+                Queue status indicator
+            </a>
+
+            <a href="#raw-to-preliminary-mapping" class="toc-link toc-link-level-1">
+                3. Raw-to-Preliminary Skill Mapping Table
+            </a>
+
+            <a href="#preliminary-standardization" class="toc-link toc-link-level-2">
+                Preliminary standardization
+            </a>
+
+            <a href="#raw-to-prelim-mapping-workflow" class="toc-link toc-link-level-2">
+                Mapping workflow
+            </a>
+
+            <a href="#standardized-skill-lookup" class="toc-link toc-link-level-2">
+                Standardized skill lookup
+            </a> 
+
+            <a href="#raw-to-prelim-validation" class="toc-link toc-link-level-2">
+                Validation behaviour
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <script type="module" src="../shared/js/photoswipe-init.js"></script>
+
+    <script src="../shared/js/smooth-scroll.js"></script>
+
+    <script src="../shared/js/navbar.js"></script>
+
+    <script src="../shared/js/toc-panel.js"></script>
+
+    <script src="../shared/js/toc-active-highlight.js"></script>
+
+    <script src="../shared/js/expandable-code-blocks.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/prismjs/prism.min.js"></script>
+
+
+    <script>
+
+        Prism.languages.excel = {
+
+          comment: {
+            pattern: /\/\/.*/,
+            greedy: true
+        },
+
+        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE)\b/,
+
+        excelString: /"[^"]*"/,
+
+        excelNumber: /\b-?\d+(?:\.\d+)?%?\b/,
+
+        excelLamba: /\b(?:IS_VALID_RAW_SKILL|IS_UNIQUE_RAW_SKILL|IS_EMPTY|IS_MAPPED_PRELIMINARY_SKILL|IS_VALID_STANDARDIZED_SKILL)\b/
+
+        };
+
+    </script>
+
+</body>
+
+</html>
