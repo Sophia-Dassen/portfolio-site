@@ -2,7 +2,7 @@ const architectureButton =
     document.getElementById('scroll-to-architecture');
 
 const architectureSection =
-    document.getElementById('raw-skill-mentions-dataset');
+    document.getElementById('problem-statement');
 
 architectureButton.addEventListener('click', (event) => {
 
