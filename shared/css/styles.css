@@ -420,6 +420,17 @@ section[id] {
 /* Typography */
 /* ========================================= */
 
+h4 {
+    font-size: 28px;
+    line-height: 1.25;
+    font-weight: 700;
+
+    color: #202020;
+
+    margin-top: 72px;
+    margin-bottom: 16px;
+}
+
 h5 {
     font-size: 24px;
     line-height: 1.25;
@@ -955,6 +966,59 @@ code[class*="language-"] {
 .validation-table td {
   color: #282828;
 }
+
+/* ========================================= */
+/* Download project file button */
+/* ========================================= */
+
+.download-section {
+    margin-top: 42px;
+    margin-bottom: 56px;
+
+    text-align: center;
+}
+
+.download-project-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+
+    padding: 10px 12px;
+
+    color: #1F4BD8;
+    text-decoration: none;
+    /* outline: 1px solid #1F4BD8; */
+
+    font-size: 16.5px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: 0.01em;
+    
+    transition: background 0.2s ease;
+}
+
+.download-project-button-icon {
+  width: 16px;
+  height: 16px;
+  transform: translateY(-1px);
+}
+
+.download-project-button:hover {
+    /* background-color: #F5F8FF; */
+    text-decoration: underline 1px;
+    text-underline-offset: 2px;
+}
+
+.download-meta {
+    margin-top: 0px;
+
+    font-size: 13.5px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+
+    color: #9ca3af;
+}
+
 
 /* ========================================= */
 /* Mobile responsiveness */

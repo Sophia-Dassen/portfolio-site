@@ -223,7 +223,178 @@
     </section>
     
     <div class="doc-container">
-      
+        
+        <!-- ======================= PROBLEM STATEMENT ======================= -->
+        
+        <section id="problem-statement">
+
+            <h4>
+                Problem Statement
+            </h4>
+
+            <p>
+                Skill requirements across job postings are expressed in highly variable ways. 
+            </p>
+
+            <p>
+                Differences in formatting (e.g., “Power BI” vs “PowerBI”) or phrasing (e.g., 
+                “multi-tasking” vs “handling multiple tasks concurrently”) fragment conceptually 
+                identical skills into multiple surface-level variants. These variations cause misleading 
+                frequency counts and unreliable aggregations. 
+            </p>
+
+            <p>
+                As a result, raw skill mentions cannot be used directly for structured skill demand 
+                analysis without a prior standardization process. 
+            </p>
+
+            <p>
+                In addition, the absence of a controlled taxonomy prevents the consistent grouping 
+                of skills into analytical categories and limits dimensional analysis potential.
+            </p>
+
+            <p>
+                To address these issues, I designed a taxonomy-driven standardization system for 
+                downstream analytical use that transforms raw skill mentions into standardized skills 
+                with hierarchical skill classification.
+            </p>
+
+        </section>
+        
+        <section id="solution-overview">
+
+            <h4>
+                Solution Overview
+            </h4>
+
+            <h6 style="font-size: 17px; margin-top: 38px;">
+                Multi-phase standardization
+            </h6>
+
+            <p>
+                For each raw skill, the user first enters a preliminary standardization. Then, for 
+                each unique preliminary skill, the user selects a standardized skill from a drop-down 
+                menu that is populated from a controlled skill taxonomy. 
+            </p>
+
+            <p>
+                 The taxonomy can be expanded as needed with additional standardized skills classified 
+                 by their skill type (hard or soft), category, and subcategory.
+            </p>
+
+            <p>
+                To prevent standardization drift, the raw-to-standardized skill mapping is fetched 
+                automatically via the preliminary mapping layer.
+            </p>
+
+            <p>
+                This multi-phase design helps separate initial data normalization from the curation 
+                of a final standardized dataset, reducing the risk of prematurely splitting or merging 
+                skill variants.
+            </p>
+
+            <h6 style="font-size: 17px; margin-top: 38px;">
+                Mapping queues and data integrity controls
+            </h6>
+
+            <p>
+                 Mapping queues detect unmapped raw and preliminary skill entries, ensuring that all 
+                 imported skill phrases are captured for standardization.
+            </p>
+
+            <p>
+                 The user copies unmapped entries from the queues into the respective mapping tables. 
+                 This human-in-the-loop workflow helps prevent accidental overwrite within the mapping 
+                 tables that may result from automatic row insertion.
+            </p>
+
+            <p>
+                Error-flagging fields within the mapping tables surface row-level data integrity issues, 
+                including empty values, duplicate entries, and unknown raw, preliminary, or standardized 
+                skills. The "valid_mapping" flag contains Boolean values that help filter invalid rows, 
+                while the "error_message" column displays the specific mapping issues.
+            </p>
+
+            <h6 style="font-size: 17px; margin-top: 38px;">
+                Data lineage integrity and taxonomy alignment
+            </h6>
+
+            <p>
+                Transforming raw skills into standardized ones is a non-destructive process that 
+                preserves the source <code>job_id</code> and <code>extracted_skill</code> values, 
+                maintaining a transparent and auditable data lineage.
+            </p>
+
+            <p>
+                Because standardized skills are selected from a controlled drop-down interface, 
+                taxonomy alignment is automatically enforced.
+            </p>
+
+            <p>
+                As a result, the final dataset of standardized skills linked to job postings and 
+                enriched with hierarchical classification enables normalized and dimensional analysis 
+                of skill demand across postings.
+            </p>
+
+        </section>
+
+        <h4>
+            Pipeline Architecture
+        </h4>
+
+        <div class="image-container" style="max-width: 650px;">
+
+            <a
+            href="assets/images/pipeline-diagram.svg"
+            data-pswp-width="2250"
+            data-pswp-height="1500"
+            target="_blank"
+            >
+
+            <img
+                src="assets/images/pipeline-diagram.svg"
+                alt="Skill standardization pipeline architecture"
+                class="zoomable-image bordered-image"
+                loading="lazy"
+            >
+
+            </a>
+
+            <div class="image-caption">
+                Figure 1. Skill standardization pipeline with input/output schemas, mapping
+                stages, and skill taxonomy.
+            </div>
+
+        </div>
+
+        <!-- Download pipeline workbook button -->
+
+        <div class="download-section">
+
+            <a class="download-project-button"
+                href="assets/files/skill-standardization-pipeline.xlsx"
+                download
+            >
+                <span class="download-project-button-label">
+                    Download pipeline workbook
+                </span>    
+                
+               <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                viewBox="0 0 31 30" 
+                fill="none"
+                class="download-project-button-icon">
+                    <path d="M15.499 1.75a1.5 1.5 0 0 1 1.5 1.5v13.772l3.111-3.333a1.335 1.335 0 0 1 1.98 0 1.577 1.577 0 0 1 0 2.121l-5.6 6c-.263.281-.619.44-.99.44s-.728-.159-.99-.44l-5.6-6a1.577 1.577 0 0 1 0-2.121 1.335 1.335 0 0 1 1.98 0l3.109 3.331V3.25a1.5 1.5 0 0 1 1.5-1.5" fill="#1f4bd8"/>
+                    <path d="M5 14.75v10.5h21v-10.5h3v13.5H2v-13.5z" fill="#1f4bd8"/>
+               </svg>
+            </a>
+
+            <div class="download-meta">
+                (XLSX, &lt;600 KB)
+            </div>
+
+        </div>
+
         <!-- ======================= SECTION 1 ======================= -->
 
         <h5 id="raw-skill-mentions-dataset">
