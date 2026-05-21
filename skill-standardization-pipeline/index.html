@@ -1173,6 +1173,167 @@
 
         </section>
 
+        <!-- ======================= SECTION 4 ======================= --> 
+        
+        <h5 id="pending-preliminary-skills-queue">
+            4. Pending Preliminary Skills Queue
+        </h5>
+        
+        <p class="section-intro">
+            A dynamic formula-based queue surfaces preliminary skills that have not yet entered the 
+            preliminary-to-standardized mapping table.
+        </p>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="preliminary-skills-queue-definition">
+            
+            <h6>
+                Definition
+            </h6>
+
+            <p>
+                A pending preliminary skill is a preliminary_skill in the raw-to-preliminary mapping 
+                table that is not present in the preliminary-to-standardized mapping table. 
+            </p>
+
+            <p>
+                This occurs when a raw skill mention is sufficiently different from other raw skills 
+                to require a new preliminary skill standardization.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/preliminary_skills_queue.mp4"
+                    data-pswp-src="assets/images/preliminary_skills_queue.mp4"
+                    data-pswp-width="1538"
+                    data-pswp-height="682"
+                    data-pswp-type="video"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/preliminary-skills-queue-thumbnail.png"
+                    alt="Demo of pending preliminary skills queue showing different queue states and 
+                    interactivity with the corresponding mapping table"
+                    class="zoomable-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 6. Demo of pending preliminary skills queue showing different queue states and 
+                    interactivity with the corresponding mapping table.
+                </div>
+
+            </div>
+        
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="preliminary-skills-queue-implementation">
+            
+            <h6>
+                Implementation
+            </h6>
+
+            <p>
+                The queue is implemented as a dynamic array formula using FILTER on the raw-to-preliminary 
+                mapping table for non-empty <code>preliminary_skill</code> values that have no match in the 
+                preliminary-to-standardized mapping table. 
+            </p>
+
+            <p>
+                When pending preliminary skills are present, the formula displays them as a sorted, unique 
+                list. Alternatively, the formula returns “(none)” to signal an empty queue state.
+            </p>
+
+            <p>
+                The queue is located on the same worksheet as the preliminary-to-standardized mapping 
+                table, to support standardization progress monitoring. As preliminary skills are added from 
+                the queue into the mapping table, the queue provides instant feedback by shrinking in size and 
+                updating its counter.
+            </p>
+            
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 365px;">
+
+                    <pre><code class="language-excel">// Pending preliminary skills queue formula
+=IFNA(
+   SORT(
+      UNIQUE(
+         FILTER(
+            RawToPreliminarySkills[preliminary_skill],
+                
+            NOT(
+               IS_EMPTY(
+                  RawToPreliminarySkills[preliminary_skill]
+               )
+            ) *
+            NOT(
+               ISNUMBER(
+                  XMATCH(
+                     RawToPreliminarySkills[preliminary_skill],
+                     PreliminaryToStandardSkills[preliminary_skill]
+                  )
+               )
+            ),
+
+            NA()
+   ))),
+
+   "(none)"
+)
+
+
+// IS_EMPTY
+=LAMBDA(
+   cell,
+    
+   LEN(
+      TRIM(
+         CLEAN(
+            // replace non-breaking space with standard space
+            SUBSTITUTE(
+               cell, CHAR(160), " "
+      )))
+   ) = 0
+)
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div> 
+        
+        </section>
+
+
     </div>
 
   </main>
@@ -1260,6 +1421,18 @@
                 Validation behaviour
             </a>
 
+            <a href="#pending-preliminary-skills-queue" class="toc-link toc-link-level-1">
+                4. Pending Preliminary Skills Queue
+            </a>
+
+            <a href="#preliminary-skills-queue-definition" class="toc-link toc-link-level-2">
+                Definition
+            </a>
+
+            <a href="#preliminary-skills-queue-implementation" class="toc-link toc-link-level-2">
+                Implementation
+            </a>
+
         </nav>
 
     </aside>
@@ -1288,7 +1461,7 @@
             greedy: true
         },
 
-        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE)\b/,
+        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA)\b/,
 
         excelString: /"[^"]*"/,
 
