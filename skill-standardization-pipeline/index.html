@@ -298,12 +298,12 @@
             </h6>
 
             <p>
-                 Mapping queues detect unmapped raw and preliminary skill entries, ensuring that all 
+                 Mapping queues detect pending raw and preliminary skill entries, ensuring that all 
                  imported skill phrases are captured for standardization.
             </p>
 
             <p>
-                 The user copies unmapped entries from the queues into the respective mapping tables. 
+                 The user copies pending entries from the queues into the respective mapping tables. 
                  This human-in-the-loop workflow helps prevent accidental overwrite within the mapping 
                  tables that may result from automatic row insertion.
             </p>
@@ -526,30 +526,30 @@
 
         <!-- ======================= SECTION 2 ======================= --> 
         
-        <h5 id="unmapped-raw-skills-queue">
-            2. Unmapped Raw Skills Queue
+        <h5 id="pending-raw-skills-queue">
+            2. Pending Raw Skills Queue
         </h5>
         
         <p class="section-intro">
-            A refresh-based queue is used to detect unmapped raw skill mentions that have not yet 
-            entered the standardization pipeline.
+            A refresh-based queue is used to detect raw skill mentions that have not yet 
+            entered the raw-to-preliminary mapping table.
         </p>
 
         <!-- ======================= SUBSECTION ======================= -->
 
-        <section class="subsection" id="unmapped-raw-skill-definition">
+        <section class="subsection" id="pending-raw-skill-definition">
 
             <h6>
                 Definition
             </h6>
 
             <p>
-                An unmapped raw skill is any row of the imported dataset that is not present in the 
+                A pending raw skill is any row of the imported dataset that is not present in the 
                 raw-to-preliminary mapping table. 
             </p>
     
             <p>
-                Unmapped raw skills can occur in two situations:
+                Pending raw skills can occur in two situations:
             </p>
 
             <ul>
@@ -565,16 +565,10 @@
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
                         when a mapping is modified in the raw-to-preliminary mapping table so that it 
-                        no longer matches an existing raw skill mention
+                        no longer matches any existing raw skill mentions
                     </span>
                 </li>
-            </ul>            
-
-            <p>
-                <i>Note: A raw skill is considered unmapped only if it is not present in the 
-                raw-to-preliminary mapping table. Raw skills with empty preliminary or standardized skill 
-                assignments are treated as an invalid mapping rather than an unmapped skill.</i>
-            </p>            
+            </ul>                     
 
         </section>        
 
@@ -598,14 +592,14 @@
             <div class="image-container large-image">
 
                 <a
-                    href="assets/images/unmapped-raw-skills-queue.gif"
+                    href="assets/images/pending-raw-skills-queue.gif"
                     data-pswp-width="1051"
                     data-pswp-height="692"
                     target="_blank"
                 >
 
                 <img
-                    src="assets/images/unmapped-raw-skills-queue.gif"
+                    src="assets/images/pending-raw-skills-queue.gif"
                     alt="Queue updating as new job postings are processed upstream"
                     class="zoomable-image bordered-image"
                     loading="lazy"
@@ -679,7 +673,7 @@
                 <li>
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
-                        displaying the count of unmapped raw skills directly above the mapping table, 
+                        displaying the count of pending raw skills directly above the mapping table, 
                         to quantify standardization progress.
                     </span>
                 </li>
@@ -722,7 +716,7 @@
             <p style="margin-bottom: 5px;">
                 The queue status indicator is <b>implemented</b> as a dynamic formula that filters the imported 
                 raw skill mentions dataset for rows without a match in the raw-to-preliminary mapping 
-                table. The formula counts the filtered rows and outputs the number of unmapped raw skills 
+                table. The formula counts the filtered rows and outputs the number of pending raw skills 
                 above the mapping table. 
             </p> 
             
@@ -732,7 +726,7 @@
 
                     <pre><code class="language-excel">// Queue status indicator formula
 =LET(
-   unmapped_skills_count,
+   pending_skills_count,
 
    ROWS(
       FILTER(
@@ -753,8 +747,8 @@
       )
    ),
 
-   "Unmapped raw skills: " &
-   IFNA(unmapped_skills_count, "0 ✓")
+   "Pending raw skills: " &
+   IFNA(pending_skills_count, "0 ✓")
 )</code></pre>
 
                 </div>
@@ -858,7 +852,7 @@
             </h6>
 
             <p>
-                The mapping workflow starts by copying unmapped raw skill mentions from the queue into 
+                The mapping workflow starts by copying pending raw skill mentions from the queue into 
                 the mapping table. This human-in-the-loop workflow helps prevent accidental overwrites 
                 that may result from automatic row insertion.
             </p>
@@ -1226,11 +1220,11 @@
                 Input schema
             </a>
 
-            <a href="#unmapped-raw-skills-queue" class="toc-link toc-link-level-1">
-                2. Unmapped Raw Skills Queue
+            <a href="#pending-raw-skills-queue" class="toc-link toc-link-level-1">
+                2. Pending Raw Skills Queue
             </a>
 
-            <a href="#unmapped-raw-skill-definition" class="toc-link toc-link-level-2">
+            <a href="#pending-raw-skill-definition" class="toc-link toc-link-level-2">
                 Definition
             </a>
 
