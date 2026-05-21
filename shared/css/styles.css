@@ -646,12 +646,12 @@ code {
   right: 0;
   bottom: 0;
 
-  height: 100px;
+  height: 90px;
 
   background: linear-gradient(
     to bottom,
     rgba(246,248,250,0),
-    rgba(246,248,250,0.92) 55%,
+    rgba(246,248,250,0.8) 50%,
     rgba(246,248,250,1)
   );
 
