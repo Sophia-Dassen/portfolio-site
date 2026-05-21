@@ -324,7 +324,7 @@ img {
   display: block;
   align-content: center;
   
-  min-height: 34px;
+  /* min-height: 34px; */
   padding:
       6px 12px
       6px 18px;
@@ -364,7 +364,7 @@ img {
   transform: translateY(-50%);
 
   width: 5px;
-  height: 85%;
+  height: 75%;
 
   border-radius: 999px;
 
@@ -372,20 +372,18 @@ img {
 }
 
 .toc-link-level-1 {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
-  line-height: 1.4;
+  line-height: 1.5;
 
   margin-top: 8px;
 }
 
 .toc-link-level-2 {
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.5;
 
   padding-left: 33px;
-
-  margin-top: 1px;
 }
 
 section[id] {
