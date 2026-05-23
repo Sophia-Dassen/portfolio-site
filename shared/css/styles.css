@@ -219,6 +219,8 @@ img {
   position: fixed;
   inset: 0;
 
+  height: 100lvh;
+
   background: rgba(0, 0, 0, 0.22);
 
   opacity: 0;
@@ -237,6 +239,8 @@ img {
   top: 0;
   right: 0;
   bottom: 0;
+
+  height: 100lvh;
 
   width: 365px;
   max-width: 85vw;
