@@ -28,5 +28,15 @@ tocOverlay.addEventListener('click', closeTOC);
 tocCloseButton.addEventListener('click', closeTOC);
 
 tocPanelLinks.forEach((link) => {
-    link.addEventListener('click', closeTOC)
+
+    link.addEventListener('click', () => {
+
+        requestAnimationFrame(() => {
+
+            setTimeout(closeTOC, 140);
+
+        });
+
+    });
+
 });
