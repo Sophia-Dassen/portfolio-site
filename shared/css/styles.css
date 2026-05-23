@@ -217,11 +217,11 @@ img {
 
 .toc-overlay {
   position: fixed;
+  
   top: 0;
-  left: 0;
   right: 0;
-
-  height: 100%;
+  bottom: 0;
+  left: 0;
 
   background: rgba(0, 0, 0, 0.22);
 
@@ -240,8 +240,7 @@ img {
 
   top: 0;
   right: 0;
-
-  height: 100%;
+  bottom: 0;
 
   width: 365px;
   max-width: 85vw;
@@ -251,6 +250,7 @@ img {
   border-left: 1px solid #DADADA;
 
   overflow-y: auto;
+  overscroll-behavior: contain;
 
   transform: translateX(100%);
 
