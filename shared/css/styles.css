@@ -247,14 +247,13 @@ img {
   right: 0;
   bottom: 0;
 
-  width: 365px;
-  max-width: 85vw;
+  width: min(365px, calc(100vw - 20px));
 
   background: #FCFCFC;
 
   border-left: 1px solid #DADADA;
 
-  overflow-y: auto;
+  overflow: auto;
   overscroll-behavior: contain;
 
   transform:
