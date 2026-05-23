@@ -233,6 +233,10 @@ img {
     visibility 220ms;
 
   z-index: 1200;
+
+  will-change: opacity;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .toc-panel {
@@ -257,6 +261,10 @@ img {
   transition: transform 240ms cubic-bezier(.47,.13,.35,.85);
 
   z-index: 1300;
+
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 .toc-open .toc-overlay {
