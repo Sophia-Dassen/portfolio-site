@@ -234,6 +234,7 @@ img {
 
   z-index: 1200;
 
+  touch-action: none;
   will-change: opacity;
   backface-visibility: hidden;
   transform: translateZ(0);
@@ -256,7 +257,9 @@ img {
   overflow-y: auto;
   overscroll-behavior: contain;
 
-  transform: translateX(100%);
+  transform:
+    translateX(100%)
+    translateZ(0);
 
   transition: transform 240ms cubic-bezier(.47,.13,.35,.85);
 
@@ -264,7 +267,6 @@ img {
 
   will-change: transform;
   backface-visibility: hidden;
-  transform: translateZ(0);
 }
 
 .toc-open .toc-overlay {
