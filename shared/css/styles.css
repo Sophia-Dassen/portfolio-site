@@ -259,10 +259,6 @@ img {
   z-index: 1300;
 }
 
-body.toc-open {
-  overflow: hidden;
-}
-
 .toc-open .toc-overlay {
   opacity: 1;
   visibility: visible;
