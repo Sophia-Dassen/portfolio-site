@@ -217,7 +217,7 @@ img {
 
 .toc-overlay {
   position: fixed;
-  inset: 0;
+  
 
   height: 100lvh;
 
@@ -238,7 +238,6 @@ img {
 
   top: 0;
   right: 0;
-  bottom: 0;
 
   height: 100lvh;
 
