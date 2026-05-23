@@ -247,7 +247,7 @@ img {
   right: 0;
   bottom: 0;
 
-  width: min(365px, calc(100vw - 20px));
+  width: min(415px, calc(100vw - 20px));
 
   background: #FCFCFC;
 
