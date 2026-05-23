@@ -8,6 +8,9 @@ const tocOverlay =
 const tocCloseButton =
     document.querySelector('.toc-close-button');
 
+const tocPanelLinks =
+    document.querySelectorAll('.toc-link');
+
 function openTOC() {
     document.body.classList.add('toc-open');
 }
@@ -23,3 +26,7 @@ tocButtons.forEach((button) => {
 tocOverlay.addEventListener('click', closeTOC);
 
 tocCloseButton.addEventListener('click', closeTOC);
+
+tocPanelLinks.forEach((link) => {
+    link.addEventListener('click', closeTOC)
+});
