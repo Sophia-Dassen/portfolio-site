@@ -269,6 +269,11 @@ img {
   backface-visibility: hidden;
 }
 
+body.toc-open,
+html.toc-open {
+  overscroll-behavior: none;
+}
+
 .toc-open .toc-overlay {
   opacity: 1;
   visibility: visible;
