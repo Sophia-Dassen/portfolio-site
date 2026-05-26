@@ -298,7 +298,7 @@
             </h6>
 
             <p>
-                 Mapping queues detect pending raw and preliminary skill entries, ensuring that all 
+                 Mapping queues detect incoming raw and preliminary skill entries, ensuring that all 
                  imported skill phrases are captured for standardization.
             </p>
 
@@ -529,9 +529,9 @@
 
         <!-- ======================= SECTION 2 ======================= --> 
         
-        <section id="pending-raw-skills-queue">
+        <section id="incoming-raw-skills-queue">
             <h5>
-                2. Pending Raw Skills Queue
+                2. Incoming Raw Skills Queue
             </h5>
             
             <p class="section-intro">
@@ -543,19 +543,19 @@
 
         <!-- ======================= SUBSECTION ======================= -->
 
-        <section class="subsection" id="pending-raw-skill-definition">
+        <section class="subsection" id="incoming-raw-skill-definition">
 
             <h6>
                 Definition
             </h6>
 
             <p>
-                A pending raw skill is any row of the imported dataset that is not present in the 
+                An incoming raw skill is any row of the imported dataset that is not present in the 
                 raw-to-preliminary mapping table. 
             </p>
     
             <p>
-                Pending raw skills can occur in two situations:
+                Incoming raw skills can occur in two situations:
             </p>
 
             <ul>
@@ -598,14 +598,14 @@
             <div class="image-container large-image">
 
                 <a
-                    href="assets/images/pending-raw-skills-queue.gif"
+                    href="assets/images/incoming-raw-skills-queue.gif"
                     data-pswp-width="1051"
                     data-pswp-height="692"
                     target="_blank"
                 >
 
                 <img
-                    src="assets/images/pending-raw-skills-queue.gif"
+                    src="assets/images/incoming-raw-skills-queue.gif"
                     alt="Queue updating as new job postings are processed upstream"
                     class="zoomable-image bordered-image"
                     loading="lazy"
@@ -679,7 +679,7 @@
                 <li>
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
-                        displaying the count of pending raw skills directly above the mapping table, 
+                        displaying the count of incoming raw skills directly above the mapping table, 
                         to quantify standardization progress.
                     </span>
                 </li>
@@ -722,7 +722,7 @@
             <p style="margin-bottom: 5px;">
                 The queue status indicator is <b>implemented</b> as a dynamic formula that filters the imported 
                 raw skill mentions dataset for rows without a match in the raw-to-preliminary mapping 
-                table. The formula counts the filtered rows and outputs the number of pending raw skills 
+                table. The formula counts the filtered rows and outputs the number of incoming raw skills 
                 above the mapping table. 
             </p> 
             
@@ -732,7 +732,7 @@
 
                     <pre><code class="language-excel">// Queue status indicator formula
 =LET(
-   pending_skills_count,
+   incoming_skills_count,
 
    ROWS(
       FILTER(
@@ -753,8 +753,8 @@
       )
    ),
 
-   "Pending raw skills: " &
-   IFNA(pending_skills_count, "0 ✓")
+   "Incoming raw skills: " &
+   IFNA(incoming_skills_count, "0 ✓")
 )</code></pre>
 
                 </div>
@@ -860,7 +860,7 @@
             </h6>
 
             <p>
-                The mapping workflow starts by copying pending raw skill mentions from the queue into 
+                The mapping workflow starts by copying incoming raw skill mentions from the queue into 
                 the mapping table. This human-in-the-loop workflow helps prevent accidental overwrites 
                 that may result from automatic row insertion.
             </p>
@@ -972,7 +972,7 @@
         <section class="subsection" id="raw-to-prelim-validation">
             
             <h6>
-                Validation behaviour
+                Validation behavior
             </h6>
 
             <p>
@@ -1727,11 +1727,11 @@
                 Input schema
             </a>
 
-            <a href="#pending-raw-skills-queue" class="toc-link toc-link-level-1">
-                2. Pending Raw Skills Queue
+            <a href="#incoming-raw-skills-queue" class="toc-link toc-link-level-1">
+                2. Incoming Raw Skills Queue
             </a>
 
-            <a href="#pending-raw-skill-definition" class="toc-link toc-link-level-2">
+            <a href="#incoming-raw-skill-definition" class="toc-link toc-link-level-2">
                 Definition
             </a>
 
@@ -1764,7 +1764,7 @@
             </a> 
 
             <a href="#raw-to-prelim-validation" class="toc-link toc-link-level-2">
-                Validation behaviour
+                Validation behavior
             </a>
 
             <a href="#pending-preliminary-skills-queue" class="toc-link toc-link-level-1">
