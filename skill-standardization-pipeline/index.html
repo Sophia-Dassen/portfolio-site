@@ -1344,6 +1344,341 @@
         
         </section>
 
+        <!-- ======================= SECTION 5 ======================= --> 
+        
+        <section id="prelim-to-standard-mapping">
+            <h5>
+                5. Preliminary-to-Standardized Skill Mapping Table
+            </h5>
+            
+            <p class="section-intro">
+                The second phase of the standardization pipeline takes place in the 
+                preliminary-to-standardized skill mapping table.
+            </p>
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="taxonomy-aligned-standardization">
+            
+            <h6>
+                Taxonomy-aligned standardization
+            </h6>
+
+            <p> 
+                For each unique preliminary skill entered in the first stage, the user selects a 
+                taxonomy-aligned final standardization in the second stage. Selection is performed through 
+                a validated drop-down interface populated from a controlled skill taxonomy.
+            </p>
+
+            <p>
+                This mapping architecture achieves:
+            </p>
+            
+            <ul style="margin-top: -8px;">
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Final dataset consistency.</b> The selection-based design ensures that only preapproved standardized skills 
+                            enter the final dataset, as opposed to allowing ad-hoc standardization.
+                        </p> 
+      
+                    </span>
+                </li>
+
+                <li style="margin-top: -4px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Consolidation of synonymous skills.</b> Multiple preliminary skills can map to a single standardized skill, which 
+                            helps create a more analytically meaningful final dataset.
+                        </p> 
+                        
+                    </span>
+                </li>
+
+                <li style="margin-top: -4px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Centralized and propagated updates.</b> Final standardizations can be revised as the dataset evolves. 
+                            Updating a final standardization only requires changing a single row in the 
+                            preliminary-to-standardized mapping table.
+                        </p>
+
+                        <p style="margin-top: -10px; margin-bottom: 0px;">
+                            The updated standardized skill is then 
+                            automatically propagated to all related raw skill mentions through the preliminary mapping layer.
+                        </p>
+                    </span>
+                </li>
+            </ul>
+
+                        <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/mapping_consolidation.jpg"
+                    data-pswp-src="assets/images/mapping_consolidation.jpg"
+                    data-pswp-width="1346"
+                    data-pswp-height="716"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/mapping_consolidation.jpg"
+                    alt="Example of a single preliminary mapping being assigned to diverse job posting
+                    extractions"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 8. Example of various raw skill mentions mapping to a few preliminary 
+                    skills that are consolidated into a single standardized skill.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="prelim-to-standard-mapping-workflow">
+            
+            <h6>
+                Mapping workflow with optional taxonomy expansion
+            </h6>
+
+            <p>
+                The workflow begins by copying pending preliminary skills from the queue into the mapping 
+                table. Then, for each <code>preliminary_skill</code>, the user selects a 
+                <code>standardized_skill</code> from a drop-down interface.
+            </p>
+            
+            <p>
+                There are two possible workflows:
+            </p>
+            
+            <p style="margin-top: -12px;">
+                <b>A. Select preexisting standardized skill</b>
+            </p>
+            
+            <p style="margin-top: -18px;">
+                This happens when a preliminary skill is synonymous with an already existing standardized 
+                skill and introducing a separate standardization would risk fragmenting the final dataset.
+            </p>
+            
+            <p style="margin-top: 40px;">
+                <b>B. Expand skill taxonomy prior to selection</b>
+            </p>
+
+            <p style="margin-top: -18px;">
+                This occurs when a preliminary skill corresponds to a tool, technology, or competence that 
+                is not yet present in the skill taxonomy.
+            </p>
+
+            <p style="margin-top: -12px;">
+                In this case, the user first expands the taxonomy with the new standardized skill and its 
+                classification (at least the skill type: hard or soft). The new entry is automatically 
+                added to the mapping table’s drop-down menu, which the user can now select.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/prelim_to_standard_mapping.mp4"
+                    data-pswp-src="assets/images/prelim_to_standard_mapping.mp4"
+                    data-pswp-width="1226"
+                    data-pswp-height="698"
+                    data-pswp-type="video"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/prelim_to_standard_mapping_thumbnail.jpg"
+                    alt="Demo of preliminary to standardized skill mapping workflow"
+                    class="zoomable-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 7. Demo of preliminary to standardized skill mapping workflow with 
+                    taxonomy-aligned selection.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="prelim-to-standard-validation">
+            
+            <h6>
+                Validation behavior
+            </h6>
+
+            <p>
+                The mapping table contains two validation columns, producing row-level data integrity 
+                metadata:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>valid_mapping:</code> contains Boolean flags indicating mapping success 
+                        or failure 
+                    </span>
+                </li>
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>error_message:</code> displays the exact issue(s) causing a mapping failure 
+                    </span>
+                </li>
+            </ul>
+
+            <table class="validation-table">
+
+                <thead>
+                    <tr>
+                        <th>Validation error</th>
+                        <th>Trigger condition</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Empty preliminary skill	</td>
+                        <td>Preliminary skill field is blank</td>
+                    </tr>
+
+                    <tr>
+                        <td>Unknown preliminary skill</td>
+                        <td>Preliminary skill does not exist in the raw-to-preliminary mapping table</td>
+                    </tr>
+
+                    <tr>
+                        <td>Duplicate preliminary skill</td>
+                        <td>Multiple mappings exist for same preliminary skill (uniqueness is
+                        compared across cleaned entries)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Empty standardized skill</td>
+                        <td>Standardized skill field is blank</td>
+                    </tr>
+
+                    <tr>
+                        <td>Invalid standardized skill</td>
+                        <td>Standardized skill either does not exist or has a taxonomy-level error 
+                        (duplicate skill or invalid classification)</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+    
+            <p style="padding-top: 12px; padding-bottom: 0; margin-bottom: 0;">
+                The mapping integrity validation is <b>implemented</b> as follows: 
+            </p>
+
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 340px;">
+
+                    <pre><code class="language-excel">// Formula in valid_mapping column
+=AND(
+   NOT(IS_EMPTY([@[preliminary_skill]])),
+   ISNUMBER(
+      XMATCH(
+         [@[preliminary_skill]],
+         RawToPreliminarySkills[preliminary_skill]
+   )),
+   // uniqueness validation via cleaned helper column
+   COUNTIF(
+      [cleaned_preliminary_skill], 
+      [@[cleaned_preliminary_skill]]
+   ) = 1,
+   NOT(IS_EMPTY([@[standardized_skill]])),
+   IS_VALID_STANDARDIZED_SKILL([@[standardized_skill]])
+)
+
+
+// IS_EMPTY
+=LAMBDA(
+   cell,
+    
+   LEN(
+      TRIM(
+         CLEAN(
+            // replace non-breaking space with standard space
+            SUBSTITUTE(
+               cell, CHAR(160), " "
+      )))
+   ) = 0
+)
+
+
+// IS_VALID_STANDARDIZED_SKILL
+=LAMBDA(
+   standard_skill,
+
+   LET(
+      is_valid,
+      
+      XLOOKUP(
+         standard_skill,
+         SkillTaxonomy[standardized_skill],
+         (SkillTaxonomy[valid_standardized_skill] * SkillTaxonomy[valid_classification]) = 1
+      ),
+
+      IFNA(
+         is_valid,
+         FALSE
+      )
+   )
+) 
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </section>
+
 
     </div>
 
@@ -1444,6 +1779,22 @@
                 Implementation
             </a>
 
+            <a href="#prelim-to-standard-mapping" class="toc-link toc-link-level-1">
+                5. Preliminary-to-Standardized Skill Mapping Table
+            </a>
+
+            <a href="#taxonomy-aligned-standardization" class="toc-link toc-link-level-2">
+                Taxonomy-aligned standardization 
+            </a>
+
+            <a href="#prelim-to-standard-mapping-workflow" class="toc-link toc-link-level-2">
+                Mapping workflow with optional taxonomy expansion 
+            </a>
+
+            <a href="#prelim-to-standard-validation" class="toc-link toc-link-level-2">
+                Validation behavior 
+            </a>
+
         </nav>
 
     </aside>
@@ -1472,7 +1823,7 @@
             greedy: true
         },
 
-        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA)\b/,
+        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF)\b/,
 
         excelString: /"[^"]*"/,
 
