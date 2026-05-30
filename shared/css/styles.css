@@ -4,7 +4,8 @@
 /* ========================================= */
 
 html {
-  scroll-padding-top: 80px;
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
 }
 
 body {
@@ -514,6 +515,59 @@ li {
 
 .bullet-text {
     flex: 1;
+}
+
+/* ========================================= */
+/* Documentation overview */
+/* ========================================= */
+
+.documentation-overview {
+    margin-top: 48px;
+    margin-bottom: 72px;
+}
+
+.documentation-overview-title {
+    margin-bottom: 12px;
+}
+
+.documentation-overview-intro {
+    margin-bottom: 16px;
+}
+
+.documentation-overview-list {
+    list-style: none;
+    padding-left: 24px;
+    counter-reset: section-counter;
+}
+
+.documentation-overview-list li {
+    counter-increment: section-counter;
+
+    display: grid;
+    grid-template-columns: 18px max-content;
+    column-gap: 12px;  
+
+    margin-bottom: 8px;
+}
+
+.documentation-overview-list li::before {
+    content: counter(section-counter) ".";
+}
+
+.documentation-overview-list a {
+    display: inline-block;  
+    color: inherit;
+    text-decoration: none;
+}
+
+.documentation-overview-list a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .documentation-overview-list {
+    padding-left: 0;
+}
 }
 
 /* ========================================= */
