@@ -405,9 +405,6 @@ html.toc-open {
   padding-left: 33px;
 }
 
-section[id] {
-  scroll-margin-top: 80px;
-}
 
 /* ========================================= */
 /* Main Page Layout */

@@ -1743,6 +1743,422 @@
 
         </section>
 
+        <!-- ======================= SECTION 6 ======================= --> 
+        
+        <section id="skill-taxonomy">
+            <h5>
+                6. Controlled Skill Taxonomy
+            </h5>
+            
+            <p class="section-intro">
+                The skill taxonomy is where standardized and hierarchically classified skills are 
+                entered and curated.
+            </p>
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="skill-taxonomy-definition">
+            
+            <h6>
+                Definition
+            </h6>
+
+            <p>
+                Each row of the skill taxonomy table represents a unique standardized skill, classified 
+                by skill type (hard or soft), skill category, and subcategory. These entries form the 
+                authoritative list of standardized skills that the imported raw skill mentions can 
+                ultimately be mapped into.
+            </p>
+
+            <p>
+                The taxonomy serves three primary functions within the standardization pipeline:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>Standardization governance.</b> Only taxonomy-approved skills can enter the 
+                        final standardized dataset.
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>Consolidation of skill variants.</b> Standardized entries reduce surface-level 
+                        variation between raw skill mentions, ensuring reliable aggregations and enabling 
+                        normalized analysis of skill demand across job postings. 
+                    </span>
+                </li>
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>Analytical classification.</b> Each standardized skill is enriched with 
+                        classification metadata that supports dimensional analysis across skill types, 
+                        categories, and subcategories. 
+                    </span>
+                </li>
+            </ul>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="taxonomy-expansion-workflow">
+            
+            <h6>
+                Taxonomy expansion workflow
+            </h6>
+
+            <p>
+                As new job postings are processed upstream, the standardization pipeline receives 
+                additional raw skill mentions.
+            </p>
+
+            <p>
+                When a job posting phrase corresponds to a tool, technology, or competence not yet 
+                present in the skill taxonomy, the taxonomy must be expanded with a new standardized 
+                skill before the raw skill mention can receive a final standardization.
+            </p>
+
+            <p>
+                The taxonomy can be expanded in two steps:
+            </p>
+
+            <ul style="padding-left: 16px;">
+                <li>
+                    <span class="bullet" style="font-size: 15px; font-weight: 700; width: 20px;">1. </span>
+                    <span class="bullet-text">
+                        <b>Enter standardized skill.</b> The user creates a new taxonomy entry 
+                        representing the tool, technology, or competence that requires standardization.
+                    </span>
+                </li>
+            
+                <li style="margin-top: 16px;">
+                    <span class="bullet" style="font-size: 15px; font-weight: 700; width: 20px;">2. </span>
+                    <span class="bullet-text">
+                        <b>Select skill classification.</b> The user performs a step-by-step selection 
+                        of skill type (hard or soft) → skill category → skill subcategory. 
+                        Only pre-approved classifications are permitted, implemented via a cascading 
+                        drop-down validation system. 
+                    </span>
+                </li>
+            </ul>
+
+            <p>
+                If the new taxonomy entry is valid – as determined by the <code>valid_standardized_skill</code> 
+                and <code>valid_classification</code> fields – it becomes automatically available in the 
+                second-stage mapping table as a final standardization option.
+            </p>
+
+            <!-- ===== VIDEO ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/taxonomy_expansion_workflow.mp4"
+                    data-pswp-width="1380"
+                    data-pswp-height="708"
+                    data-pswp-type="video"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/taxonomy_expansion_workflow_thumbnail.png"
+                    alt="Demo of taxonomy expansion workflow"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 10. Demo of expanding the taxonomy with a new standardized skill using 
+                    hierarchical classification.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="skill-classification-lookup-table">
+            
+            <h6>
+                Skill classification lookup table
+            </h6>
+
+            <p>
+                Pre-approved skill classifications – unique skill type, category, and subcategory 
+                combinations – are curated in a dedicated lookup table.
+            </p>
+
+            <p>
+                This table directly impacts downstream skill demand analysis since it defines the 
+                analytical categories that related skills are grouped by.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/skill_classification_lookup_table.png"
+                    data-pswp-width="1914"
+                    data-pswp-height="1040"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/skill_classification_lookup_table.png"
+                    alt="Skill classification lookup table"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 11. Reference table of approved skill type, category, and subcategory combinations.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="cascading-drop-down-classification">
+            
+            <h6>
+                Cascading drop-down classification
+            </h6>
+
+            <p>
+                A skill type selection (hard or soft) filters the available skill categories, while the 
+                selected category limits the available skill subcategory options.
+            </p>
+
+            <p>
+                This protects against erroneous categorizations such as Soft skill → Interpersonal skills 
+                → Statistical methods.
+            </p>
+
+            <p>
+                The cascading drop-down validation is implemented using hidden helper sheets 
+                that dynamically generate the possible skill category and subcategory options for each 
+                taxonomy row. The <code>category_validation</code> sheet filters the classification lookup 
+                table according to the selected skill type, while the <code>subcategory_validation</code> 
+                sheet filters available subcategories based on the selected skill category.
+            </p>
+
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 320px;">
+
+                    <pre><code class="language-excel">// Spill-based data validation list
+=INDEX(category_validation!$A:$A, ROW())#
+
+
+// Formula in category_validation sheet 
+=TRANSPOSE(
+   SORT(
+      UNIQUE(
+         FILTER(
+            SkillClassifications[skill_category], 
+
+            TRIM(
+               CLEAN(
+                  SkillClassifications[skill_type]
+            )) = 
+            TRIM(
+               CLEAN(
+                  SkillClassifications[@[skill_type]]
+            )),
+
+            NA()
+))))
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+        
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="skill-taxonomy-validation">
+            
+            <h6>
+                Validation behavior
+            </h6>
+
+            <p>
+                The skill taxonomy table contains three validation columns, producing row-level data 
+                integrity metadata:
+            </p>
+            
+            <ul>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>valid_standardized_skill:</code> contains Boolean flags indicating 
+                        standardized skill validity. 
+                    </span>
+                </li>
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>valid_classification:</code> contains Boolean flags indicating 
+                        skill classification validity. Requires a valid standardized skill as a 
+                        classification target. 
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <code>error_message:</code> displays the exact issue(s) associated with a 
+                        taxonomy entry. 
+                    </span>
+                </li>
+            </ul>
+
+            <table class="validation-table">
+
+                <thead>
+                    <tr>
+                        <th>Validation error</th>
+                        <th>Trigger condition</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                    <tr>
+                        <td>Empty standardized skill</td>
+                        <td>Standardized skill field is blank</td>
+                    </tr>
+
+                    <tr>
+                        <td>Duplicate standardized skill</td>
+                        <td>Standardized skill is entered more than once (uniqueness is compared across 
+                            cleaned entries)</td>
+                    </tr>
+
+                    <tr>
+                        <td>Empty skill classification</td>
+                        <td>All classification fields (skill type, category, subcategory) are blank</td>
+                    </tr>
+
+                    <tr>
+                        <td>Invalid skill classification</td>
+                        <td>The given skill type, category, and subcategory combination does not exist in 
+                            the classification lookup table</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+    
+            <p style="padding-top: 12px; padding-bottom: 0; margin-bottom: 0;">
+                The taxonomy integrity validation is <b>implemented</b> as follows: 
+            </p>
+
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 350px;">
+
+                    <pre><code class="language-excel">// Formula in valid_standardized_skill column
+=AND(
+   NOT(IS_EMPTY([@[standardized_skill]])),
+   COUNTIF(
+      [cleaned_standardized_skill], 
+      [@[cleaned_standardized_skill]]
+    ) = 1
+)
+
+
+// Formula in valid_classification column
+=AND(
+   [@[valid_standardized_skill]],
+   IS_VALID_SKILL_CLASSIFICATION(
+      [@[skill_type]], 
+      [@[skill_category]], 
+      [@[skill_subcategory]]
+   )
+)
+
+
+// IS_VALID_SKILL_CLASSIFICATION
+=LAMBDA(
+   skill_type,
+   skill_category,
+   skill_subcategory,
+
+   ISNUMBER(
+      XMATCH(
+         1,
+         (SkillClassifications[skill_type] = skill_type) *
+         (SkillClassifications[skill_category] = skill_category) *
+         (SkillClassifications[skill_subcategory] = skill_subcategory)
+      )
+   )
+)
+
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </section>
 
     </div>
 
@@ -1859,6 +2275,30 @@
                 Validation behavior 
             </a>
 
+            <a href="#skill-taxonomy" class="toc-link toc-link-level-1">
+                6. Controlled Skill Taxonomy 
+            </a>
+
+            <a href="#skill-taxonomy-definition" class="toc-link toc-link-level-2">
+                Definition 
+            </a>
+
+            <a href="#taxonomy-expansion-workflow" class="toc-link toc-link-level-2">
+                Taxonomy expansion workflow 
+            </a>
+
+            <a href="#skill-classification-lookup-table" class="toc-link toc-link-level-2">
+                Skill classification lookup table  
+            </a>
+
+            <a href="#cascading-drop-down-classification" class="toc-link toc-link-level-2">
+                Cascading drop-down classification
+            </a>
+
+            <a href="#skill-taxonomy-validation" class="toc-link toc-link-level-2">
+                Validation behavior
+            </a>
+
         </nav>
 
     </aside>
@@ -1887,13 +2327,13 @@
             greedy: true
         },
 
-        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF)\b/,
+        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF|TRANSPOSE|ROW)\b/,
 
         excelString: /"[^"]*"/,
 
         excelNumber: /\b-?\d+(?:\.\d+)?%?\b/,
 
-        excelLamba: /\b(?:IS_VALID_RAW_SKILL|IS_UNIQUE_RAW_SKILL|IS_EMPTY|IS_MAPPED_PRELIMINARY_SKILL|IS_VALID_STANDARDIZED_SKILL)\b/
+        excelLamba: /\b(?:IS_VALID_RAW_SKILL|IS_UNIQUE_RAW_SKILL|IS_EMPTY|IS_MAPPED_PRELIMINARY_SKILL|IS_VALID_STANDARDIZED_SKILL|IS_VALID_SKILL_CLASSIFICATION)\b/
 
         };
 
