@@ -635,7 +635,7 @@ code {
 
   overflow: hidden;
 
-  transition: max-height 380ms cubic-bezier(0.22, 1, 0.36, 1);;
+  transition: max-height 380ms cubic-bezier(0.22, 1, 0.36, 1);
 
   padding-bottom: 44px;
 }
@@ -643,6 +643,7 @@ code {
 .expandable-code-block {
   padding-top: 16px;
   position: relative;
+  margin-bottom: 60px;
 }
 
 .expandable-code-block.expanded
