@@ -804,7 +804,7 @@ code[class*="language-"] {
     width: 100%;
 
     margin-top: clamp(42px, 8vw, 52px);
-    margin-bottom: clamp(42px, 8vw, 52px); 
+    margin-bottom: clamp(42px, 8vw, 62px); 
     margin-left: auto;
     margin-right: auto; 
 }
@@ -814,11 +814,11 @@ code[class*="language-"] {
 }
 
 .large-image {
-  max-width: 520px;
+  max-width: 580px;
 }
 
 .image-caption {
-    margin-top: 10px;
+    margin-top: 16px;
 
     text-align: center;
 
