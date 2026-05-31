@@ -1062,60 +1062,62 @@
                 </li>
             </ul>
 
-            <table class="validation-table">
+            <div class="validation-table-wrapper">
+                <table class="validation-table">
 
-                <thead>
-                    <tr>
-                        <th>Validation error</th>
-                        <th>Trigger condition</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th>Validation error</th>
+                            <th>Trigger condition</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
+                    <tbody>
 
-                    <tr>
-                        <td>Unknown raw skill</td>
-                        <td><code>job_id</code>, <code>extracted_skill</code>,
-                            <code>observed_skill_type</code> combination not found in imported dataset</td>
-                    </tr>
+                        <tr>
+                            <td>Unknown raw skill</td>
+                            <td><code>job_id</code>, <code>extracted_skill</code>,
+                                <code>observed_skill_type</code> combination not found in imported dataset</td>
+                        </tr>
 
-                    <tr>
-                        <td>Duplicate raw skill</td>
-                        <td>Multiple mappings exist for same raw skill</td>
-                    </tr>
+                        <tr>
+                            <td>Duplicate raw skill</td>
+                            <td>Multiple mappings exist for same raw skill</td>
+                        </tr>
 
-                    <tr>
-                        <td>Empty preliminary skill</td>
-                        <td>Preliminary skill field is blank (no preliminary standardization
-                            entered yet)</td>
-                    </tr>
+                        <tr>
+                            <td>Empty preliminary skill</td>
+                            <td>Preliminary skill field is blank (no preliminary standardization
+                                entered yet)</td>
+                        </tr>
 
-                    <tr>
-                        <td>Unmapped preliminary skill</td>
-                        <td>Preliminary skill is not mapped to a standardized skill
-                            in the second-stage mapping table</td>
-                    </tr>
+                        <tr>
+                            <td>Unmapped preliminary skill</td>
+                            <td>Preliminary skill is not mapped to a standardized skill
+                                in the second-stage mapping table</td>
+                        </tr>
 
-                    <tr>
-                        <td>Overwritten standardization lookup formula</td>
-                        <td>Standardized skill lookup formula was manually deleted or replaced</td>
-                    </tr>
+                        <tr>
+                            <td>Overwritten standardization lookup formula</td>
+                            <td>Standardized skill lookup formula was manually deleted or replaced</td>
+                        </tr>
 
-                    <tr>
-                        <td>Empty standardized skill</td>
-                        <td>Standardized skill field is blank because the preliminary skill is empty
-                            or unmapped</td>
-                    </tr>
+                        <tr>
+                            <td>Empty standardized skill</td>
+                            <td>Standardized skill field is blank because the preliminary skill is empty
+                                or unmapped</td>
+                        </tr>
 
-                    <tr>
-                        <td>Invalid standardized skill</td>
-                        <td>Standardized skill has a taxonomy-level error (duplicate skill or invalid
-                            classification)</td>
-                    </tr>
+                        <tr>
+                            <td>Invalid standardized skill</td>
+                            <td>Standardized skill has a taxonomy-level error (duplicate skill or invalid
+                                classification)</td>
+                        </tr>
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
+            </div>
     
             <p style="padding-top: 12px; padding-bottom: 0; margin-bottom: 0;">
                 The mapping integrity validation is <b>implemented</b> as follows: 
@@ -1613,7 +1615,8 @@
                 </li>
             </ul>
 
-            <div class="validation-table-wrapper"></div>
+            <div class="validation-table-wrapper">
+
                 <table class="validation-table">
 
                     <thead>
@@ -2053,42 +2056,44 @@
                 </li>
             </ul>
 
-            <table class="validation-table">
+            <div class="validation-table-wrapper">
+                <table class="validation-table">
 
-                <thead>
-                    <tr>
-                        <th>Validation error</th>
-                        <th>Trigger condition</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th>Validation error</th>
+                            <th>Trigger condition</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
+                    <tbody>
 
-                    <tr>
-                        <td>Empty standardized skill</td>
-                        <td>Standardized skill field is blank</td>
-                    </tr>
+                        <tr>
+                            <td>Empty standardized skill</td>
+                            <td>Standardized skill field is blank</td>
+                        </tr>
 
-                    <tr>
-                        <td>Duplicate standardized skill</td>
-                        <td>Standardized skill is entered more than once (uniqueness is compared across 
-                            cleaned entries)</td>
-                    </tr>
+                        <tr>
+                            <td>Duplicate standardized skill</td>
+                            <td>Standardized skill is entered more than once (uniqueness is compared across 
+                                cleaned entries)</td>
+                        </tr>
 
-                    <tr>
-                        <td>Empty skill classification</td>
-                        <td>All classification fields (skill type, category, subcategory) are blank</td>
-                    </tr>
+                        <tr>
+                            <td>Empty skill classification</td>
+                            <td>All classification fields (skill type, category, subcategory) are blank</td>
+                        </tr>
 
-                    <tr>
-                        <td>Invalid skill classification</td>
-                        <td>The given skill type, category, and subcategory combination does not exist in 
-                            the classification lookup table</td>
-                    </tr>
+                        <tr>
+                            <td>Invalid skill classification</td>
+                            <td>The given skill type, category, and subcategory combination does not exist in 
+                                the classification lookup table</td>
+                        </tr>
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
+            </div>
     
             <p style="padding-top: 12px; padding-bottom: 0; margin-bottom: 0;">
                 The taxonomy integrity validation is <b>implemented</b> as follows: 

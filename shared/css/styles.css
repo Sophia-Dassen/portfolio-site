@@ -995,12 +995,21 @@ code[class*="language-"] {
   font-size: 15px;
 
   line-height: 1.5;
+
+  width: max(330px, 100%);
 }
 
 
 .validation-table th:first-child,
 .validation-table td:first-child {
-  width: min(240px, 40%);
+  width: 240px;
+}
+
+@media (max-width: 500px) {
+  .validation-table th:first-child,
+  .validation-table td:first-child {
+    width: 145px;
+  }
 }
 
 .validation-table tbody td:first-child {
@@ -1018,8 +1027,6 @@ code[class*="language-"] {
   border-left: 1px solid #D1D9E0;
   border-right: 1px solid #D1D9E0;
   border-top: 1px solid #D1D9E0;
-  
-  overflow-wrap: anywhere;
 }
 
 .validation-table th {
