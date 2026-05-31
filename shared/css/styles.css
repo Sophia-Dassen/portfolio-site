@@ -883,6 +883,9 @@ code[class*="language-"] {
   border: none !important;
 }
 
+.pswp {
+  --pswp-bg: rgba(0, 0, 0, 0.97);
+}
 
 /* ========================================= */
 /* Hero Section */
