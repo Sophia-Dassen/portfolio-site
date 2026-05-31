@@ -877,7 +877,7 @@
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
                         “Support multiple functions”
-                        <span style="white-space: nowrap;">
+                        <span class="mapping-label">
                             → <i>Cross-Functional Collaboration</i>
                         </span>
                     </span>
@@ -887,7 +887,7 @@
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
                         “Create relevant Documentation”
-                        <span style="white-space: nowrap;">
+                        <span class="mapping-label">
                             → <i>Technical Documentation</i>
                         </span>
                     </span>
@@ -897,7 +897,7 @@
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
                         “Ensure data accuracy and integrity”
-                        <span style="white-space: nowrap;">
+                        <span class="mapping-label">
                             → <i>Data Integrity Control</i>
                         </span>
                     </span>
@@ -1613,47 +1613,50 @@
                 </li>
             </ul>
 
-            <table class="validation-table">
+            <div class="validation-table-wrapper"></div>
+                <table class="validation-table">
 
-                <thead>
-                    <tr>
-                        <th>Validation error</th>
-                        <th>Trigger condition</th>
-                    </tr>
-                </thead>
+                    <thead>
+                        <tr>
+                            <th>Validation error</th>
+                            <th>Trigger condition</th>
+                        </tr>
+                    </thead>
 
-                <tbody>
+                    <tbody>
 
-                    <tr>
-                        <td>Empty preliminary skill	</td>
-                        <td>Preliminary skill field is blank</td>
-                    </tr>
+                        <tr>
+                            <td>Empty preliminary skill	</td>
+                            <td>Preliminary skill field is blank</td>
+                        </tr>
 
-                    <tr>
-                        <td>Unknown preliminary skill</td>
-                        <td>Preliminary skill does not exist in the raw-to-preliminary mapping table</td>
-                    </tr>
+                        <tr>
+                            <td>Unknown preliminary skill</td>
+                            <td>Preliminary skill does not exist in the raw-to-preliminary mapping table</td>
+                        </tr>
 
-                    <tr>
-                        <td>Duplicate preliminary skill</td>
-                        <td>Multiple mappings exist for same preliminary skill (uniqueness is
-                        compared across cleaned entries)</td>
-                    </tr>
+                        <tr>
+                            <td>Duplicate preliminary skill</td>
+                            <td>Multiple mappings exist for same preliminary skill (uniqueness is
+                            compared across cleaned entries)</td>
+                        </tr>
 
-                    <tr>
-                        <td>Empty standardized skill</td>
-                        <td>Standardized skill field is blank</td>
-                    </tr>
+                        <tr>
+                            <td>Empty standardized skill</td>
+                            <td>Standardized skill field is blank</td>
+                        </tr>
 
-                    <tr>
-                        <td>Invalid standardized skill</td>
-                        <td>Standardized skill either does not exist or has a taxonomy-level error 
-                        (duplicate skill or invalid classification)</td>
-                    </tr>
+                        <tr>
+                            <td>Invalid standardized skill</td>
+                            <td>Standardized skill either does not exist or has a taxonomy-level error 
+                            (duplicate skill or invalid classification)</td>
+                        </tr>
 
-                </tbody>
+                    </tbody>
 
-            </table>
+                </table>
+
+            </div>
     
             <p style="padding-top: 12px; padding-bottom: 0; margin-bottom: 0;">
                 The mapping integrity validation is <b>implemented</b> as follows: 
