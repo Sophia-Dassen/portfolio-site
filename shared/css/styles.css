@@ -984,19 +984,21 @@ code[class*="language-"] {
   max-width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+  
+  margin-bottom: 32px;
 }
 
 .validation-table {
   border-collapse: collapse;
 
-  margin-top: 24px;
-  margin-bottom: 38px;
+  margin-top: 20px;
+  margin-bottom: 12px;
 
   font-size: 15px;
 
   line-height: 1.5;
 
-  width: max(330px, 100%);
+  width: max(320px, 100%);
 }
 
 
@@ -1006,6 +1008,10 @@ code[class*="language-"] {
 }
 
 @media (max-width: 500px) {
+  .validation-table {
+    table-layout: fixed;
+  }
+  
   .validation-table th:first-child,
   .validation-table td:first-child {
     width: 145px;
