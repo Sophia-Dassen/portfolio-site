@@ -689,43 +689,6 @@
 
         <!-- ======================= SUBSECTION ======================= -->
 
-        <section class="subsection" id="raw-skills-queue-limitations">
-            
-            <h6>
-                Operational limitations
-            </h6>
-
-            <p>
-                The refresh-based queue design introduces two operational limitations:
-            </p>
-            
-            <ul>
-                <li>
-                    <span class="bullet">&bull;</span>
-                    <span class="bullet-text">
-                        Since the queue and corresponding mapping table are located on separate sheets, 
-                        monitoring mapping completeness requires manual sheet navigation.
-                    </span>
-                </li>
-            
-                <li>
-                    <span class="bullet">&bull;</span>
-                    <span class="bullet-text">
-                        If an already mapped raw skill is modified within the mapping table, the queue 
-                        does not include the affected raw skill mention until the next refresh. 
-                        
-                        <div style="height: 8px"></div>
-                        
-                        This may cause a temporary discrepancy between perceived and true mapping 
-                        completeness.
-                    </span>
-                </li>
-            </ul>
-        
-        </section>
-
-        <!-- ======================= SUBSECTION ======================= -->
-
         <section class="subsection" id="queue-status-indicator">
             
             <h6>
@@ -733,28 +696,51 @@
             </h6>
 
             <p>
-                To address these operational limitations, a real-time queue status indicator is added 
-                above the mapping table. 
+                The refresh-based queue design introduces two operational limitations, which are addressed 
+                by a real-time queue status indicator located above the mapping table: 
             </p>
-            
-            <p>
-                The status indicator complements the queue by:
-            </p>
-            
-            <ul>
+
+            <ul style="margin-top: -10px;">
                 <li>
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
-                        displaying the count of incoming raw skills directly above the mapping table, 
-                        to quantify standardization progress.
+                        <p>
+                            <b>Pipeline progress monitoring.</b> 
+                        </p>
+
+                        <p style="margin-top: -20px;">
+                            Since the queue and corresponding mapping table are located on separate sheets, 
+                            monitoring mapping completeness requires manual sheet navigation.
+                        </p>
+                        
+                        <p style="margin-top: -16px;">
+                            The queue status indicator displays the count of unmapped raw skills directly 
+                            above the mapping table, to quantify standardization progress.
+                        </p>
                     </span>
                 </li>
             
                 <li>
                     <span class="bullet">&bull;</span>
                     <span class="bullet-text">
-                        providing instant feedback if an already mapped raw skill is modified and no 
-                        longer matches the source data.
+                        <p>
+                            <b>Instant validation feedback.</b> 
+                        </p>
+
+                        <p style="margin-top: -20px;">
+                            If an already mapped raw skill is modified within the mapping table, the queue 
+                            does not include the affected raw skill mention until the next refresh.
+                        </p>
+
+                        <p style="margin-top: -16px;">
+                            This may cause a temporary discrepancy between perceived and true mapping 
+                            completeness.
+                        </p>
+                        
+                        <p style="margin-top: -16px;">
+                            The queue status indicator provides instant feedback if an already mapped 
+                            raw skill is modified and no longer matches the source data.
+                        </p>
                     </span>
                 </li>
             </ul>
@@ -2220,10 +2206,6 @@
 
             <a href="#raw-skills-queue-implementation" class="toc-link toc-link-level-2">
                 Implementation
-            </a>
-
-            <a href="#raw-skills-queue-limitations" class="toc-link toc-link-level-2">
-                Operational limitations
             </a>
 
             <a href="#queue-status-indicator" class="toc-link toc-link-level-2">
