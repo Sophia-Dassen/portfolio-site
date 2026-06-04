@@ -551,6 +551,10 @@ p {
     font-weight: 700;
 }
 
+.alpha-list li::before {
+    content: counter(step, upper-alpha) ".";
+}
+
 /* ========================================= */
 /* Documentation overview */
 /* ========================================= */
