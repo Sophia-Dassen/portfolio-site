@@ -554,6 +554,10 @@ p {
     .alpha-list {
       padding-left: 0px;
     }
+
+    .numbered-list li {
+      column-gap: 10px;
+    }
 }
 
 /* ========================================= */
