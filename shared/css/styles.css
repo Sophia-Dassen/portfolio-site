@@ -490,13 +490,6 @@ p {
     margin-bottom: 30px;
 }
 
-@media (max-width: 600px) {
-    ol, 
-    ul {
-      padding-left: 0px;
-    }
-}
-
 .bullet-point-list li {
     display: flex;
     align-items: flex-start;
@@ -553,6 +546,14 @@ p {
 
 .alpha-list li::before {
     content: counter(step, upper-alpha) ".";
+}
+
+@media (max-width: 600px) {
+    .bullet-point-list, 
+    .numbered-list,
+    .alpha-list {
+      padding-left: 0px;
+    }
 }
 
 /* ========================================= */
