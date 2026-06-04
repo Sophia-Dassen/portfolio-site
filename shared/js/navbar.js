@@ -10,8 +10,8 @@ let lastScrollY =
 let navbarVisible =
     true;
 
-let downScrollAccumulated =
-    0;
+let downScrollAccumulated = 0;
+let upScrollAccumulated = 0;
 
 window.addEventListener('scroll', () => {
 
@@ -24,54 +24,59 @@ window.addEventListener('scroll', () => {
     // SCROLLING DOWN
     if (difference > 0) {
 
-    downScrollAccumulated += difference;
+        downScrollAccumulated += difference;
+        upScrollAccumulated = 0;
 
-    if (
-        downScrollAccumulated > 20 &&
-        navbarVisible
-    ) {
+        if (
+            downScrollAccumulated > 20 &&
+            navbarVisible
+        ) {
 
-        navbar.classList.add(
-        'top-navbar-hidden'
-        );
+            navbar.classList.add(
+            'top-navbar-hidden'
+            );
 
-        floatingTocButton.classList.add(
-        'floating-toc-button-visible'
-        );
+            floatingTocButton.classList.add(
+            'floating-toc-button-visible'
+            );
 
-        navbarVisible = false;
-    }
+            navbarVisible = false;
+        }
 
     }
 
     // SCROLLING UP
     else if (difference < 0) {
+    
+        upScrollAccumulated += Math.abs(difference);
+        downScrollAccumulated = 0;
 
-    downScrollAccumulated = 0;
+        if (
+            upScrollAccumulated > 50 &&
+            !navbarVisible
+        ) {
 
-    if (!navbarVisible) {
+            navbar.classList.remove(
+            'top-navbar-hidden'
+            );
 
-        navbar.classList.remove(
-        'top-navbar-hidden'
-        );
+            floatingTocButton.classList.remove(
+            'floating-toc-button-visible'
+            );
 
-        floatingTocButton.classList.remove(
-        'floating-toc-button-visible'
-        );
-
-        navbarVisible = true;
-    }
+            navbarVisible = true;
+        }
 
     }
 
     // ALWAYS SHOW NEAR TOP
     if (currentScrollY <= 10) {
 
-    navbar.classList.remove(
-        'top-navbar-hidden'
-    );
+        navbar.classList.remove(
+            'top-navbar-hidden'
+        );
 
-    navbarVisible = true;
+        navbarVisible = true;
     }
 
     lastScrollY =
