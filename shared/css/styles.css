@@ -484,19 +484,20 @@ p {
 /* Lists */
 /* ========================================= */
 
-ul {
+.bullet-point-list {
     padding-left: 12px;
     margin-top: -18px;
     margin-bottom: 30px;
 }
 
 @media (max-width: 600px) {
+    ol, 
     ul {
       padding-left: 0px;
     }
 }
 
-li {
+.bullet-point-list li {
     display: flex;
     align-items: flex-start;
 
