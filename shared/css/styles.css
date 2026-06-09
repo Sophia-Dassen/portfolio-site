@@ -248,7 +248,7 @@ img {
   right: 0;
   bottom: 0;
 
-  width: min(415px, calc(100vw - 20px));
+  width: min(440px, calc(100vw - 20px));
 
   background: #FCFCFC;
 
@@ -343,10 +343,9 @@ html.toc-open {
   display: block;
   align-content: center;
   
-  /* min-height: 34px; */
   padding:
-      6px 12px
-      6px 18px;
+      4px 12px
+      4px 18px;
   left: 10px;
 
   color: #363e4c;
@@ -390,19 +389,29 @@ html.toc-open {
   background: rgba(10, 52, 125, 0.8);
 }
 
+.toc-link-level-0 {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  margin-top: 10px;
+}
+
 .toc-link-level-1 {
   font-size: 14px;
   font-weight: 600;
   line-height: 1.5;
 
-  margin-top: 8px;
+  margin-top: 6px;
+
+  padding-left: 36px;
 }
 
 .toc-link-level-2 {
   font-size: 14px;
   line-height: 1.5;
 
-  padding-left: 33px;
+  padding-left: 52px;
 }
 
 
