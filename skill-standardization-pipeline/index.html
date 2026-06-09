@@ -444,126 +444,129 @@
 
         </section>
 
-        <h4>
-            Pipeline Architecture
-        </h4>
+        <section id="pipeline-implementation-intro">
+            <h4>
+                Pipeline Implementation
+            </h4>
 
-        <div class="image-container" style="max-width: 650px;">
+            <div class="image-container" style="max-width: 650px;">
 
-            <a
-            href="assets/images/pipeline-diagram.svg"
-            data-pswp-width="2250"
-            data-pswp-height="1500"
-            target="_blank"
-            >
+                <a
+                href="assets/images/pipeline-diagram.svg"
+                data-pswp-width="2250"
+                data-pswp-height="1500"
+                target="_blank"
+                >
 
-            <img
-                src="assets/images/pipeline-diagram.svg"
-                alt="Skill standardization pipeline architecture"
-                class="zoomable-image bordered-image"
-                loading="lazy"
-            >
+                <img
+                    src="assets/images/pipeline-diagram.svg"
+                    alt="Skill standardization pipeline architecture"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
 
-            </a>
+                </a>
 
-            <div class="image-caption">
-                Figure 1. Skill standardization pipeline with input/output schemas, mapping
-                stages, and skill taxonomy.
+                <div class="image-caption">
+                    Figure 1. Skill standardization pipeline with input/output schemas, mapping
+                    stages, and skill taxonomy.
+                </div>
+
             </div>
 
-        </div>
+            <!-- Download pipeline workbook button -->
 
-        <!-- Download pipeline workbook button -->
+            <div class="download-section">
 
-        <div class="download-section">
+                <a class="download-project-button"
+                    href="assets/files/skill-standardization-pipeline.xlsx"
+                    download
+                >
+                    <span class="download-project-button-label">
+                        Download pipeline workbook
+                    </span>    
+                    
+                <svg 
+                    xmlns="http://www.w3.org/2000/svg" 
+                    viewBox="0 0 31 30" 
+                    fill="none"
+                    class="download-project-button-icon">
+                        <path d="M15.499 1.75a1.5 1.5 0 0 1 1.5 1.5v13.772l3.111-3.333a1.335 1.335 0 0 1 1.98 0 1.577 1.577 0 0 1 0 2.121l-5.6 6c-.263.281-.619.44-.99.44s-.728-.159-.99-.44l-5.6-6a1.577 1.577 0 0 1 0-2.121 1.335 1.335 0 0 1 1.98 0l3.109 3.331V3.25a1.5 1.5 0 0 1 1.5-1.5" fill="#1f4bd8"/>
+                        <path d="M5 14.75v10.5h21v-10.5h3v13.5H2v-13.5z" fill="#1f4bd8"/>
+                </svg>
+                </a>
 
-            <a class="download-project-button"
-                href="assets/files/skill-standardization-pipeline.xlsx"
-                download
-            >
-                <span class="download-project-button-label">
-                    Download pipeline workbook
-                </span>    
-                
-               <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                viewBox="0 0 31 30" 
-                fill="none"
-                class="download-project-button-icon">
-                    <path d="M15.499 1.75a1.5 1.5 0 0 1 1.5 1.5v13.772l3.111-3.333a1.335 1.335 0 0 1 1.98 0 1.577 1.577 0 0 1 0 2.121l-5.6 6c-.263.281-.619.44-.99.44s-.728-.159-.99-.44l-5.6-6a1.577 1.577 0 0 1 0-2.121 1.335 1.335 0 0 1 1.98 0l3.109 3.331V3.25a1.5 1.5 0 0 1 1.5-1.5" fill="#1f4bd8"/>
-                    <path d="M5 14.75v10.5h21v-10.5h3v13.5H2v-13.5z" fill="#1f4bd8"/>
-               </svg>
-            </a>
+                <div class="download-meta">
+                    (XLSX, &lt;600 KB)
+                </div>
 
-            <div class="download-meta">
-                (XLSX, &lt;600 KB)
             </div>
 
-        </div>
+            <!-- ======================= Documentation Overview ======================= -->
 
-        <!-- ======================= Documentation Overview ======================= -->
+            <section class="documentation-overview">
 
-        <section class="documentation-overview">
+                <h5 class="documentation-overview-title">
+                    Documentation Overview
+                </h5>
 
-            <h5 class="documentation-overview-title">
-                Documentation Overview
-            </h5>
+                <p class="documentation-overview-intro">
+                    The pipeline documentation is organized into the following sections:
+                </p>
 
-            <p class="documentation-overview-intro">
-                The pipeline architecture documentation is organized into the following sections:
-            </p>
+                <ol class="documentation-overview-list">
 
-            <ol class="documentation-overview-list">
+                    <li>
+                        <a href="#raw-skill-mentions-dataset">
+                            Raw Skill Mentions Dataset 
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#raw-skill-mentions-dataset">
-                        Raw Skill Mentions Dataset 
-                    </a>
-                </li>
+                    <li>
+                        <a href="#incoming-raw-skills-queue">
+                            Incoming Raw Skills Queue 
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#incoming-raw-skills-queue">
-                        Incoming Raw Skills Queue 
-                    </a>
-                </li>
+                    <li>
+                        <a href="#raw-to-preliminary-mapping">
+                            Raw-to-Preliminary Skill Mapping Table 
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#raw-to-preliminary-mapping">
-                        Raw-to-Preliminary Skill Mapping Table 
-                    </a>
-                </li>
+                    <li>
+                        <a href="#pending-preliminary-skills-queue">
+                            Pending Preliminary Skills Queue 
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#pending-preliminary-skills-queue">
-                        Pending Preliminary Skills Queue 
-                    </a>
-                </li>
+                    <li>
+                        <a href="#prelim-to-standard-mapping">
+                            Preliminary-to-Standardized Skill Mapping Table 
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#prelim-to-standard-mapping">
-                        Preliminary-to-Standardized Skill Mapping Table 
-                    </a>
-                </li>
+                    <li>
+                        <a href="#skill-taxonomy">
+                            Controlled Skill Taxonomy 
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#skill-taxonomy">
-                        Controlled Skill Taxonomy 
-                    </a>
-                </li>
+                    <li>
+                        <a href="#pipeline-monitoring-dashboard">
+                            Pipeline Monitoring Dashboard
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#pipeline-monitoring-dashboard">
-                        Pipeline Monitoring Dashboard
-                    </a>
-                </li>
+                    <li>
+                        <a href="#final-standardized-dataset">
+                            Final Standardized Dataset
+                        </a>
+                    </li>
 
-                <li>
-                    <a href="#final-standardized-dataset">
-                        Final Standardized Dataset
-                    </a>
-                </li>
+                </ol>
 
-            </ol>
+            </section>
 
         </section>
 
