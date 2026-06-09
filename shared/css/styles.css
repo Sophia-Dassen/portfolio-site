@@ -548,6 +548,10 @@ p {
     content: counter(step, upper-alpha) ".";
 }
 
+.solution-overview-list li {
+    margin-top: 4px;
+}
+
 @media (max-width: 600px) {
     .bullet-point-list, 
     .numbered-list,

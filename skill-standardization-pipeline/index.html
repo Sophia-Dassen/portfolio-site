@@ -267,74 +267,179 @@
                 Solution Overview
             </h4>
 
-            <h6 style="font-size: 17px; margin-top: 38px;">
-                Multi-phase standardization
-            </h6>
-
             <p>
-                For each raw skill, the user first enters a preliminary standardization. Then, for 
-                each unique preliminary skill, the user selects a standardized skill from a drop-down 
-                menu that is populated from a controlled skill taxonomy. 
+                This project implements a skill standardization pipeline in Excel that transforms raw skill 
+                mentions into standardized skills through a two-stage mapping workflow. 
             </p>
 
             <p>
-                 The taxonomy can be expanded as needed with additional standardized skills classified 
-                 by their skill type (hard or soft), category, and subcategory.
+                For each raw skill, the user first enters a preliminary standardization. Then, for each 
+                unique preliminary skill, the user selects a standardized skill from a controlled skill 
+                taxonomy. The taxonomy can be expanded as needed with additional standardized skills classified by 
+                their skill type (hard or soft), category, and subcategory. 
             </p>
 
             <p>
-                To prevent standardization drift, the raw-to-standardized skill mapping is fetched 
-                automatically via the preliminary mapping layer.
+                The final standardized skill is fetched automatically via the preliminary mapping layer, 
+                which helps prevent inconsistent mappings and enables systematic updates. 
             </p>
 
             <p>
-                This multi-phase design helps separate initial data normalization from the curation 
-                of a final standardized dataset, reducing the risk of prematurely splitting or merging 
-                skill variants.
+                To further support consistent standardization, the pipeline combines mapping tables, 
+                validation frameworks, diagnostic dashboards, and queue-based workflows while maintaining 
+                full traceability from raw skill mentions to final analytical outputs.
             </p>
 
-            <h6 style="font-size: 17px; margin-top: 38px;">
-                Mapping queues and data integrity controls
-            </h6>
-
-            <p>
-                 Mapping queues detect incoming raw and preliminary skill entries, ensuring that all 
-                 imported skill phrases are captured for standardization.
+            <p style="font-size: 17px; font-weight: 700; margin-top: 48px;">
+                Core Features
             </p>
 
-            <p>
-                 The user copies pending entries from the queues into the respective mapping tables. 
-                 This human-in-the-loop workflow helps prevent accidental overwrite within the mapping 
-                 tables that may result from automatic row insertion.
+            <ul class="bullet-point-list solution-overview-list">
+                <li style="margin-top: 26px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Two-stage skill standardization workflow
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Controlled skill taxonomy with hierarchical classification
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Queue-based workflow management
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Row-level validation and error diagnostics
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Pipeline monitoring dashboard
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        End-to-end data lineage and traceability
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Final standardized dataset for dimensional analysis
+                    </span>
+                </li>
+            </ul>
+
+            <p style="font-size: 17px; font-weight: 700; margin-top: 48px;">
+                Key Technologies
             </p>
 
-            <p>
-                Error-flagging fields within the mapping tables surface row-level data integrity issues, 
-                including empty values, duplicate entries, and unknown raw, preliminary, or standardized 
-                skills. The "valid_mapping" flag contains Boolean values that help filter invalid rows, 
-                while the "error_message" column displays the specific mapping issues.
+            <ul class="bullet-point-list solution-overview-list">
+                <li style="margin-top: 26px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Excel Tables
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Power Query
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Dynamic Array Formulas
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        XLOOKUP & XMATCH
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Cascading Data Validation
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Reusable LET & LAMBDA Functions
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        FILTER, BYROW & SUBTOTAL
+                    </span>
+                </li>
+            </ul>
+
+            <p style="font-size: 17px; font-weight: 700; margin-top: 48px;">
+                Dataset Metrics
             </p>
 
-            <h6 style="font-size: 17px; margin-top: 38px;">
-                Data lineage integrity and taxonomy alignment
-            </h6>
+            <ul class="bullet-point-list solution-overview-list">
+                <li style="margin-top: 26px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        36 Data Analyst job postings
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        889 extracted skill mentions
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        575 unique raw skills
+                    </span>
+                </li>
 
-            <p>
-                Transforming raw skills into standardized ones is a non-destructive process that 
-                preserves the source <code>job_id</code> and <code>extracted_skill</code> values, 
-                maintaining a transparent and auditable data lineage.
-            </p>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        173 preliminary skills
+                    </span>
+                </li>
 
-            <p>
-                Because standardized skills are selected from a controlled drop-down interface, 
-                taxonomy alignment is automatically enforced.
-            </p>
-
-            <p>
-                As a result, the final dataset of standardized skills linked to job postings and 
-                enriched with hierarchical classification enables normalized and dimensional analysis 
-                of skill demand across postings.
-            </p>
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        156 standardized skills
+                    </span>
+                </li>
+            </ul>
 
         </section>
 
