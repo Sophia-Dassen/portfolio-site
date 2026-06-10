@@ -2298,6 +2298,353 @@
 
         </section>
 
+        <!-- ======================= SECTION 7 ======================= --> 
+        
+        <section id="pipeline-monitoring-dashboard">
+            <h5>
+                7. Pipeline Monitoring Dashboard
+            </h5>
+            
+            <p class="section-intro">
+                A monitoring dashboard consisting of two panels – Pipeline Overview and Mapping Diagnostics
+                – is positioned above the raw-to-preliminary mapping table to provide visibility into 
+                pipeline scale, transformation outcomes, and data quality.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/pipeline_monitoring_dashboard.png"
+                    data-pswp-width="2055"
+                    data-pswp-height="1083"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/pipeline_monitoring_dashboard.png"
+                    alt="Pipeline monitoring dashboard"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 12. Pipeline monitoring dashboard consisting of the Pipeline Overview and
+                    Mapping Diagnostics panels.
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="pipeline-overview">
+            
+            <h6>
+                Pipeline Overview
+            </h6>
+
+            <ul class="bullet-point-list key-ideas-list" style="margin-top: 16px;">
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Measures pipeline scale.</b> Total imported skill mentions and job postings 
+                            processed.
+                        </p>
+                        
+                    </span>
+                </li>
+            
+                <li style="margin-top: -14px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Quantifies skill consolidation.</b> Raw → preliminary → standardized skill 
+                            counts.
+                        </p>
+                         
+                    </span>
+                </li>
+                
+                <li style="margin-top: -14px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Monitors mapping validity.</b> Valid versus total skill mappings.
+                        </p>  
+                    </span>
+                </li>
+
+                <li style="margin-top: -14px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Supports filtered analysis.</b> Comparison of filtered and full dataset 
+                            metrics.
+                        </p>  
+                    </span>
+                </li>
+            </ul>
+
+            <p style="margin-top: -6px; padding-bottom: 0; margin-bottom: 0;">
+                The filtered context metric generation is <b>implemented</b> as follows: 
+            </p>
+
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 350px;">
+
+                    <pre><code class="language-excel">// Total standardized skills in filtered context
+=IFNA(
+   ROWS(
+      UNIQUE(
+         FILTER(
+            RawToPreliminarySkills[standardized_skill],
+
+            (LEN(
+               RawToPreliminarySkills[standardized_skill]
+            ) > 0) *
+            (BYROW(
+               RawToPreliminarySkills[standardized_skill],
+
+               LAMBDA(row,
+                  SUBTOTAL(
+                     103, // COUNTA, ignoring hidden rows 
+                     row
+                  )
+               )
+            )),
+
+            NA()
+   ))),
+
+   0
+)
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="mapping-diagnostics">
+            
+            <h6>
+                Mapping Diagnostics
+            </h6>
+
+            <ul class="bullet-point-list key-ideas-list" style="margin-top: 16px;">
+                
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Aggregates validation errors by type:</b> 
+                        </p>
+
+                        <ul class="bullet-point-list" style="padding-left: 20px;">
+                            <li>
+                                <span class="bullet" style="font-size: 16px;">&#9642;</span>
+                                Unknown raw skills
+                            </li>
+
+                            <li style="margin-top: 4px;">
+                                <span class="bullet" style="font-size: 16px;">&#9642;</span>
+                                Duplicate raw skills
+                            </li>
+
+                            <li style="margin-top: 4px;">
+                                <span class="bullet" style="font-size: 16px;">&#9642;</span>
+                                Empty preliminary skills
+                            </li>
+
+                            <li style="margin-top: 4px;">
+                                <span class="bullet" style="font-size: 16px;">&#9642;</span>
+                                Unmapped preliminary skills (unique)
+                            </li>
+
+                            <li style="margin-top: 4px;">
+                                <span class="bullet" style="font-size: 16px;">&#9642;</span>
+                                Overwritten standardization lookup
+                            </li>
+                        </ul>
+                        
+                    </span>
+                </li>
+            
+                <li style="margin-top: -14px;">
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <p>
+                            <b>Summarizes remaining mapping work.</b> Number of raw skills missing 
+                            preliminary standardization, and number of unique preliminary skills requiring 
+                            final standardization.
+                        </p>
+                    </span>
+                </li>
+            </ul>
+
+            <!-- ===== VIDEO ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/pipeline_monitoring_dashboard.mp4"
+                    data-pswp-src="assets/images/pipeline_monitoring_dashboard.mp4"
+                    data-pswp-width="1262"
+                    data-pswp-height="720"
+                    data-pswp-type="video"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/pipeline_monitoring_dashboard_thumbnail.png"
+                    alt="Mapping diagnostics panel updating automatically as validation errors are 
+                    introduced into the raw-to-preliminary mapping table"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 13. Mapping diagnostics panel updating automatically as validation errors are 
+                    introduced into the raw-to-preliminary mapping table.
+                </div>
+
+            </div>
+
+            <p style="margin-top: -6px; padding-bottom: 0; margin-bottom: 0;">
+                The mapping diagnostics panel is <b>implemented</b> as follows: 
+            </p>
+
+            <div class="expandable-code-block collapsed">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 350px;">
+
+                    <pre><code class="language-excel">// Mapping diagnostics error reporting formula
+=LET(
+   CountErrorType,
+   LAMBDA(
+      error_type,
+      SUMPRODUCT(
+         --(BYROW(
+               RawToPreliminarySkills[error_message],
+               LAMBDA(
+                  row,
+                  ISNUMBER(
+                     FIND(
+                        error_type,
+                        row
+                     )
+                  )
+               )
+         ))
+      )
+   ),
+     
+   UnknownRaw, CountErrorType("Unknown raw skill"),
+   DuplicateRaw, CountErrorType("Duplicate raw skill"),
+   EmptyPrelim, CountErrorType("Empty preliminary skill"),
+   ManualOverride, CountErrorType("Overwritten standardization lookup"),
+
+   UniqueUnmappedPrelim,
+   IFNA(
+      ROWS(
+         UNIQUE(
+            FILTER(
+               RawToPreliminarySkills[preliminary_skill],
+               ISNUMBER(
+                  FIND(
+                     "Unmapped preliminary skill",
+                     RawToPreliminarySkills[error_message]
+                  )
+               ),
+               NA()
+      ))),
+      0
+   ),
+   
+   // Error display logic
+   IF(
+      COUNTIF(
+         RawToPreliminarySkills[valid_mapping],
+         FALSE
+      ) = 0,
+      
+      " No errors detected ✓",
+
+      TEXTJOIN(
+         CHAR(10),  // errors separated by newline
+         TRUE,      // show only existing errors
+
+         IF(UnknownRaw > 0, "▪ Unknown raw skills: " & UnknownRaw, ""),
+         IF(DuplicateRaw > 0, "▪ Duplicate raw skills: " & DuplicateRaw, ""),
+         IF(EmptyPrelim > 0, "▪ Empty preliminary skills: " & EmptyPrelim, ""),
+         IF(UniqueUnmappedPrelim > 0, "▪ Unmapped preliminary skills (unique): " & UniqueUnmappedPrelim, ""),
+         IF(ManualOverride > 0, "▪ Overwritten standardization lookup: " & ManualOverride, "")
+      )
+   )
+)
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+
+        </section>
+
     </div>
 
   </main>
@@ -2445,6 +2792,17 @@
                 Validation behavior
             </a>
 
+            <a href="#pipeline-monitoring-dashboard" class="toc-link toc-link-level-1">
+                6. Pipeline Monitoring Dashboard 
+
+            <a href="#pipeline-overview" class="toc-link toc-link-level-2">
+                Pipeline Overview 
+            </a>
+
+            <a href="#mapping-diagnostics" class="toc-link toc-link-level-2">
+                Mapping Diagnostics 
+            </a>
+
         </nav>
 
     </aside>
@@ -2473,7 +2831,7 @@
             greedy: true
         },
 
-        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF|TRANSPOSE|ROW)\b/,
+        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF|TRANSPOSE|ROW|SUBTOTAL)\b/,
 
         excelString: /"[^"]*"/,
 
