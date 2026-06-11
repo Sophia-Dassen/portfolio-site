@@ -1195,19 +1195,11 @@
 
                         <tr>
                             <td>Overwritten standardization lookup formula</td>
-                            <td>Standardized skill lookup formula was manually deleted or replaced</td>
-                        </tr>
-
-                        <tr>
-                            <td>Empty standardized skill</td>
-                            <td>Standardized skill field is blank because the preliminary skill is empty
-                                or unmapped</td>
-                        </tr>
-
-                        <tr>
-                            <td>Invalid standardized skill</td>
-                            <td>Standardized skill has a taxonomy-level error (duplicate skill or invalid
-                                classification)</td>
+                            <td>Standardized skill lookup formula was manually deleted or modified. Note:
+                                Invalid standardized skills cannot enter the table while the lookup formula 
+                                is intact, since the lookup returns only mappings where 
+                                <code>valid_mapping = TRUE</code>. 
+                            </td>
                         </tr>
 
                     </tbody>
@@ -1229,9 +1221,10 @@
    IS_UNIQUE_RAW_SKILL([@[job_id]], [@[extracted_skill]], [@[observed_skill_type]]),    
    NOT(IS_EMPTY([@[preliminary_skill]])),    
    IS_MAPPED_PRELIMINARY_SKILL([@[preliminary_skill]]),    
-   NOT(ISNA(FORMULATEXT([@[standardized_skill]]))),    
-   NOT(IS_EMPTY([@[standardized_skill]])),   
-   IS_VALID_STANDARDIZED_SKILL([@[standardized_skill]])
+   AND(
+      ISFORMULA([@[standardized_skill]]), 
+      [@[standardized_skill]] = EXPECTED_STANDARDIZED_SKILL_LOOKUP_RESULT([@[preliminary_skill]])
+   )
 )
 
 
@@ -1297,25 +1290,25 @@
 ) 
 
 
-// IS_VALID_STANDARDIZED_SKILL
+// EXPECTED_STANDARDIZED_SKILL_LOOKUP_RESULT
 =LAMBDA(
-   standard_skill,
-
-   LET(
-      is_valid,
-      
+   prelim_skill,
+   IF(
       XLOOKUP(
-         standard_skill,
-         SkillTaxonomy[standardized_skill],
-         (SkillTaxonomy[valid_standardized_skill] * SkillTaxonomy[valid_classification]) = 1
-      ),
-
-      IFNA(
-         is_valid,
-         FALSE
+         prelim_skill,
+         PreliminaryToStandardSkills[preliminary_skill],
+         PreliminaryToStandardSkills[valid_mapping],
+         ""
+      ) <> TRUE,  // fetch only valid standardized skill mappings
+      "",
+      XLOOKUP(
+         prelim_skill,
+         PreliminaryToStandardSkills[preliminary_skill],
+         PreliminaryToStandardSkills[standardized_skill],
+         ""
       )
-   )
-) 
+   ) & ""
+)
 
 </code></pre>
 
@@ -2831,13 +2824,13 @@
             greedy: true
         },
 
-        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF|TRANSPOSE|ROW|SUBTOTAL)\b/,
+        function: /\b(?:LET|FILTER|BYROW|LAMBDA|XMATCH|INDEX|ROWS|IFNA|NOT|ISNUMBER|FORMULATEXT|AND|COUNTIFS|LEN|TRIM|CLEAN|SUBSTITUTE|SORT|UNIQUE|NA|COUNTIF|TRANSPOSE|ROW|SUBTOTAL|ISFORMULA|IF|XLOOKUP)\b/,
 
         excelString: /"[^"]*"/,
 
         excelNumber: /\b-?\d+(?:\.\d+)?%?\b/,
 
-        excelLamba: /\b(?:IS_VALID_RAW_SKILL|IS_UNIQUE_RAW_SKILL|IS_EMPTY|IS_MAPPED_PRELIMINARY_SKILL|IS_VALID_STANDARDIZED_SKILL|IS_VALID_SKILL_CLASSIFICATION)\b/
+        excelLamba: /\b(?:IS_VALID_RAW_SKILL|IS_UNIQUE_RAW_SKILL|IS_EMPTY|IS_MAPPED_PRELIMINARY_SKILL|IS_VALID_STANDARDIZED_SKILL|IS_VALID_SKILL_CLASSIFICATION|EXPECTED_STANDARDIZED_SKILL_LOOKUP_RESULT)\b/
 
         };
 
