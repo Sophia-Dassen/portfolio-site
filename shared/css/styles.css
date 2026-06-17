@@ -250,7 +250,7 @@ img {
 
   width: min(440px, calc(100vw - 20px));
 
-  background: #FCFCFC;
+  background: #FFFFFF;
 
   border-left: 1px solid #DADADA;
 
@@ -297,7 +297,7 @@ html.toc-open {
     20px
     0px;
 
-  background: #FCFCFC;
+  background: #FAFAFA;
 
   border-bottom: 1px solid #E3E3E3;
 
@@ -348,8 +348,9 @@ html.toc-open {
       4px 18px;
   left: 10px;
 
-  color: #363e4c;
+  color: #1f2328;
   text-decoration: none;
+  letter-spacing: 0.03;
 
   border-radius: 8px;
 
@@ -360,15 +361,12 @@ html.toc-open {
 
 .toc-link:hover {
     background-color: rgba(10, 31, 68, 0.04);
-    color: #0A1F44;
 }
 
 .toc-link-active {
   background-color: rgba(10, 31, 68, 0.06);
 
-  color: #0A1F44;
-
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .toc-link-active::before {
@@ -391,7 +389,7 @@ html.toc-open {
 
 .toc-link-level-0 {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
 
   margin-top: 10px;
@@ -399,7 +397,7 @@ html.toc-open {
 
 .toc-link-level-1 {
   font-size: 14px;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.5;
 
   margin-top: 6px;
@@ -410,6 +408,7 @@ html.toc-open {
 .toc-link-level-2 {
   font-size: 14px;
   line-height: 1.5;
+  color: #23282e;
 
   padding-left: 52px;
 }
