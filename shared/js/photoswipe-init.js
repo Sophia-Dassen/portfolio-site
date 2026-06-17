@@ -1,21 +1,20 @@
 import PhotoSwipeLightbox from
     'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe-lightbox.esm.min.js';
 
-import PhotoSwipeVideoPlugin from 
+import PhotoSwipeVideoPlugin from
     './vendor/photoswipe-video-plugin.esm.js';
 
-function isDesktop() {
+function isDesktop()
+{
     return window.matchMedia('(min-width: 900px)').matches;
 }
 
-const lightbox = new PhotoSwipeLightbox({
+export const sharedPhotoSwipeOptions  = {
 
-    gallery: 'a[data-pswp-width]',
-    children: '',
-
-    initialZoomLevel: (zoomLevelObject) => {
-
-        if (isDesktop()) {
+    initialZoomLevel: (zoomLevelObject) =>
+    {
+        if (isDesktop())
+        {
             return zoomLevelObject.fit * 0.85;
         }
 
@@ -23,13 +22,33 @@ const lightbox = new PhotoSwipeLightbox({
     },
 
     pswpModule: () =>
-    import('https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js')
+        import(
+            'https://cdn.jsdelivr.net/npm/photoswipe@5/dist/photoswipe.esm.min.js'
+        )
 
-});
+};
 
-const videoPlugin = new PhotoSwipeVideoPlugin(lightbox, {
-    // options if needed
-});
 
-lightbox.init();
+// =====================================
+// Standalone images
+// =====================================
+
+const standaloneLightbox =
+    new PhotoSwipeLightbox({
+
+        ...sharedPhotoSwipeOptions ,
+
+        gallery:
+            'a[data-pswp-width]:not(.gallery-item):not(.gallery-main-link)',
+
+        children: ''
+
+    });
+
+new PhotoSwipeVideoPlugin(
+    standaloneLightbox,
+    {}
+);
+
+standaloneLightbox.init();
 
