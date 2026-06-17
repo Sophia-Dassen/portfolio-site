@@ -23,19 +23,40 @@ tocButtons.forEach((button) => {
     button.addEventListener('click', openTOC);
 });
 
-tocOverlay.addEventListener('click', closeTOC);
-
 tocCloseButton.addEventListener('click', closeTOC);
 
-tocPanelLinks.forEach((link) => {
+tocOverlay.addEventListener('click', (event) => {
 
-    link.addEventListener('click', () => {
+    if (event.target === tocOverlay) {
+        closeTOC();
+    }
 
-        requestAnimationFrame(() => {
+});
 
-            setTimeout(closeTOC, 140);
+tocPanelLinks.forEach(link => {
 
+    link.addEventListener('click', event => {
+
+        event.preventDefault();
+
+        const target =
+            document.querySelector(
+                link.getAttribute('href')
+            );
+
+        if (!target) {
+            return;
+        }
+
+        window.scrollTo({
+            top:
+                target.getBoundingClientRect().top +
+                window.scrollY -
+                90,
+            behavior: 'smooth'
         });
+
+        setTimeout(closeTOC, 120);
 
     });
 
