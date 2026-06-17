@@ -2638,6 +2638,294 @@
 
         </section>
 
+         <!-- ======================= SECTION 8 ======================= --> 
+        
+        <section id="final-standardized-dataset">
+            <h5>
+                8. Final Standardized Dataset
+            </h5>
+            
+            <p class="section-intro">
+                The skill standardization pipeline concludes in a standardized analytical dataset that 
+                transforms unstructured skill mentions into validated, taxonomy-classified records, 
+                suitable for downstream analysis and visualization. 
+            </p>
+        
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="output-schema">
+            
+            <h6>
+                Output schema
+            </h6>
+
+            <p>
+                Each row of the final dataset represents a single imported raw skill mention enriched with 
+                its final standardization and classification, defined by the following fields:
+            </p>
+
+            <ul class="bullet-point-list">
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>job_id:</code> Unique job posting identifier
+                </span>
+                </li>
+            
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>extracted_skill:</code> Exact skill phrase extracted from the original job posting
+                </span>
+                </li>
+            
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>standardized_skill:</code> Standardized skill phrase
+                </span>
+                </li>
+
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>skill_type:</code> Standardized skill type (hard or soft)
+                </span>
+                </li>
+
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>skill_category:</code> Main skill category
+                </span>
+                </li>
+
+                <li>
+                <span class="bullet">&bull;</span>
+                <span class="bullet-text">
+                    <code>skill_subcategory:</code> Skill subcategory
+                </span>
+                </li>
+            </ul>
+
+            <p>
+                The output dataset is implemented in Power Query via a left outer join between:
+            </p>
+
+            <ol class="numbered-list" style="margin-top: -24px;">
+                <li>
+                    The raw-to-preliminary mapping table with derived standardized skills 
+                </li>
+            
+                <li style="margin-top: -6px;">
+                    The skill taxonomy table 
+                </li>
+            </ol>
+
+            <p style="margin-top: -14px;">
+                using the shared <code>standardized_skill</code> field as the join key.
+            </p>
+
+            <p>
+                To ensure analytical integrity, validation fields are used to exclude invalid records 
+                from the final dataset. In order to be used for analysis, each record must satisfy the 
+                following requirements:
+            </p>
+
+            <div class="code-block tall-line-height-code" style="margin-top: -18px; padding-top: 8px; padding-bottom: 8px;">
+
+                    <pre><code>valid_mapping = TRUE
+valid_standardized_skill = TRUE 
+valid_classification = TRUE 
+</code></pre>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION ======================= -->
+
+        <section class="subsection" id="final-dashboard">
+            
+            <h6>
+                Interactive skill demand dashboard
+            </h6>
+
+            <p>
+                The final dataset powers an interactive dashboard that enables multidimensional 
+                exploration of skill demand across the analyzed job postings.
+            </p>
+
+            <p>
+                Analytical capabilities include:
+            </p>
+
+            <ul class="bullet-point-list solution-overview-list">
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Skill prevalence analysis
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Hard vs soft skill comparison
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Skill category analysis
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Skill subcategory analysis
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Individual skill drilldown
+                    </span>
+                </li>
+
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        Dynamic KPI reporting
+                    </span>
+                </li>
+            </ul>
+
+
+            <div 
+                class="image-gallery pswp-gallery"
+                style="max-width: 650px;"
+                data-active-index="0"
+            >
+
+                <!-- Main image -->
+
+                <div class="gallery-main">
+
+                    <a
+                        class="gallery-main-link"
+                        href="assets/images/dashboard-no-filters.png"
+                        data-pswp-width="2324"
+                        data-pswp-height="1065"
+                        target="_blank"
+                    >
+
+                        <img
+                            class="gallery-main-image zoomable-image bordered-image"
+                            src="assets/images/dashboard-no-filters.png"
+                            alt="Dashboard overview"
+                        >
+
+                    </a>
+
+                </div>
+
+                <!-- Caption -->
+
+                <div class="image-caption gallery-caption">
+                    Figure 14. Dashboard overview.
+                </div>
+
+                <div class="gallery-thumbnails"">
+
+                    <a
+                        class="gallery-item"
+                        href="assets/images/dashboard-no-filters.png"
+
+                        data-pswp-width="2324"
+                        data-pswp-height="1065"
+                    >
+
+                        <img
+                            class="gallery-thumb active"
+                            src="assets/images/dashboard-no-filters.png"
+
+                            alt="Dashboard overview"
+
+                            data-index="0"
+
+                            data-full-image="assets/images/dashboard-no-filters.png"
+                            data-width="2324"
+                            data-height="1065"
+
+                            data-caption="Figure 14. Dashboard overview."
+                        >
+
+                    </a>
+
+                    <a
+                        class="gallery-item"
+                        href="assets/images/dashboard-category-filter.png"
+
+                        data-pswp-width="2324"
+                        data-pswp-height="1065"
+                    >
+
+                        <img
+                            class="gallery-thumb"
+                            src="assets/images/dashboard-category-filter.png"
+
+                            alt="Category analysis"
+
+                            data-index="1"
+
+                            data-full-image="assets/images/dashboard-category-filter.png"
+                            data-width="2324"
+                            data-height="1065"
+
+                            data-caption="Figure 15. Category analysis example."
+                        >
+
+                    </a>
+
+                    <a
+                        class="gallery-item"
+                        href="assets/images/dashboard-skill-drilldown.png"
+
+                        data-pswp-width="2324"
+                        data-pswp-height="1065"
+                    >
+
+                        <img
+                            class="gallery-thumb"
+                            src="assets/images/dashboard-skill-drilldown.png"
+
+                            alt="Skill drilldown"
+
+                            data-index="2"
+
+                            data-full-image="assets/images/dashboard-skill-drilldown.png"
+                            data-width="2324"
+                            data-height="1065"
+
+                            data-caption="Figure 16. Skill drilldown example."
+                        >
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+
     </div>
 
   </main>
@@ -2797,9 +3085,23 @@
                 Mapping Diagnostics 
             </a>
 
+            <a href="#final-standardized-dataset" class="toc-link toc-link-level-1">
+                8. Final Standardized Dataset 
+            </a>
+
+            <a href="#output-schema" class="toc-link toc-link-level-2">
+                Output schema 
+            </a>
+
+            <a href="#final-dashboard" class="toc-link toc-link-level-2">
+                Interactive skill demand dashboard 
+            </a>
+
         </nav>
 
     </aside>
+
+  </div>
 
     <script type="module" src="../shared/js/photoswipe-init.js"></script>
 

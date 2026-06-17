@@ -683,6 +683,10 @@ code {
   white-space: pre;
 }
 
+.tall-line-height-code code {
+  line-height: 1.6;
+}
+
 /* ========================================= */
 /* Code Block */
 /* ========================================= */
