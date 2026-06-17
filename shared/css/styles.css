@@ -549,7 +549,6 @@ p {
 
 .numbered-list li::before {
     content: counter(step) ".";
-    font-weight: 700;
 }
 
 .alpha-list li::before {
