@@ -116,7 +116,9 @@ async function openGallery(event)
 
             dataSource: items,
 
-            index: activeIndex
+            index: activeIndex,
+
+            loop: true
 
         });
 
