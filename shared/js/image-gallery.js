@@ -83,9 +83,8 @@ document.addEventListener("DOMContentLoaded", () =>
 });
 
 
-async function openGallery(event)
-{
-    console.count("openGallery");
+async function openGallery(event) {
+    
     event.preventDefault();
 
     const gallery =
