@@ -13,7 +13,7 @@ architectureButton.addEventListener('click', (event) => {
     + window.pageYOffset
     - 20;
 
-    smoothScrollTo(targetY, 1400);
+    smoothScrollTo(targetY, 750);
 
 });
 
@@ -33,9 +33,7 @@ function smoothScrollTo(targetY, duration) {
     const percent = Math.min(time / duration, 1);
 
     const ease =
-        percent < 0.5
-        ? 4 * percent * percent * percent
-        : 1 - Math.pow(-2 * percent + 2, 3) / 2;
+             1 - Math.pow(1 - percent, 3);
 
     window.scrollTo(
         0,
