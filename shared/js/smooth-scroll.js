@@ -1,51 +1,98 @@
 const architectureButton =
-    document.getElementById('scroll-to-architecture');
+    document.getElementById(
+        'scroll-to-architecture'
+    );
 
 const architectureSection =
-    document.getElementById('problem-statement');
+    document.getElementById(
+        'problem-statement'
+    );
 
-architectureButton.addEventListener('click', (event) => {
+const ease = BezierEasing(.23,.02,.07,.94);
 
-    event.preventDefault();
+function smoothScrollTo(
+    targetY,
+    duration = 950
+) {
 
-    const targetY =
-    architectureSection.getBoundingClientRect().top
-    + window.pageYOffset
-    - 20;
+    const startY =
+        window.pageYOffset;
 
-    smoothScrollTo(targetY, 750);
-
-});
-
-function smoothScrollTo(targetY, duration) {
-
-    const startY = window.pageYOffset;
-    const difference = targetY - startY;
+    const difference =
+        targetY - startY;
 
     let startTime = null;
 
     function step(currentTime) {
 
-    if (!startTime) startTime = currentTime;
+        if (!startTime) {
 
-    const time = currentTime - startTime;
+            startTime =
+                currentTime;
 
-    const percent = Math.min(time / duration, 1);
+        }
 
-    const ease =
-             1 - Math.pow(1 - percent, 3);
+        const elapsedTime =
+            currentTime - startTime;
 
-    window.scrollTo(
-        0,
-        startY + difference * ease
+        const percent =
+            Math.min(
+                elapsedTime / duration,
+                1
+            );
+
+        const easedPercent =
+            ease(percent);
+
+        window.scrollTo(
+
+            0,
+
+            startY
+            + difference
+            * easedPercent
+
+        );
+
+        if (percent < 1) {
+
+            requestAnimationFrame(
+                step
+            );
+
+        }
+
+    }
+
+    requestAnimationFrame(
+        step
     );
 
-    if (time < duration) {
-        requestAnimationFrame(step);
-    }
-
-    }
-
-    requestAnimationFrame(step);
-
 }
+
+architectureButton.addEventListener(
+
+    'click',
+
+    event => {
+
+        event.preventDefault();
+
+        const targetY =
+
+            architectureSection
+                .getBoundingClientRect()
+                .top
+
+            + window.pageYOffset
+
+            - 20;
+
+        smoothScrollTo(
+            targetY,
+            950
+        );
+
+    }
+
+);
