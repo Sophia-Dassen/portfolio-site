@@ -37,69 +37,9 @@ img {
     height: auto;
 }
 
-/* ========================================= */
-/* Sticky Navbar */
-/* ========================================= */
-
-.top-navbar {
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-
-  width: 100%;
-  height: 54px;
-
-  background: #031B57;
-
-  transition:
-    transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-
-.top-navbar-hidden {
-  transform: translateY(-100%);
-}
-
-.top-navbar-inner {
-  width: 100%;
-  max-width: 1050px;
-
-  height: 100%;
-
-  margin-left: auto;
-  margin-right: auto;
-
-  padding-left: 24px;
-  padding-right: 40px;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.nav-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-
-  color: #ffffff;
-  opacity: 0.98;
-  text-decoration: none;
-
-  font-size: 15px;
-  font-weight: 400;
-}
-
-.nav-link-icon {
-  width: 12px;
-  height: 12px;
-
-  flex: 0 0 auto;
-
-  transform: rotate(90deg) translateX(-0.5px);
-}
 
 /* ========================================= */
-/* Home Navbar */
+/* Home Page Navbar */
 /* ========================================= */
 
 .home-navbar {
@@ -112,6 +52,10 @@ img {
 
   padding-left: clamp(28px, 3vw, 58px);
   padding-right: clamp(28px, 3vw, 58px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .home-brand-link,
@@ -357,6 +301,71 @@ img {
       transform: translateX(2px);
     }
 
+}
+
+
+/* ========================================= */
+/* Project Page Navbar */
+/* ========================================= */
+
+.top-navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  width: 100%;
+
+  background: #031B57;
+
+  transition:
+    transform 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.project-navbar {
+  height: 54px;
+}
+
+.top-navbar-hidden {
+  transform: translateY(-102%);
+}
+
+.project-navbar-inner {
+  width: 100%;
+  max-width: 1050px;
+
+  height: 100%;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  padding-left: 24px;
+  padding-right: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  color: #ffffff;
+  opacity: 0.98;
+  text-decoration: none;
+
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.nav-link-icon {
+  width: 12px;
+  height: 12px;
+
+  flex: 0 0 auto;
+
+  transform: rotate(90deg) translateX(-0.5px);
 }
 
 .toc-button {
@@ -1620,12 +1629,9 @@ code[class*="language-"] {
 /* Mobile responsiveness */
 /* ========================================= */
 @media (max-width: 900px) {
-    
-    .top-navbar {
-        height: 54px;
-    }
 
-    .top-navbar-inner {
+    .home-navbar-inner,
+    .project-navbar-inner {
         padding-left: clamp(20px, 5vw, 40px);
         padding-right: clamp(20px, 5vw, 40px);
     }
