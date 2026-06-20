@@ -55,7 +55,7 @@ img {
 }
 
 .top-navbar-hidden {
-  transform: translateY(-56px);
+  transform: translateY(-100%);
 }
 
 .top-navbar-inner {
@@ -95,6 +95,89 @@ img {
   flex: 0 0 auto;
 
   transform: rotate(90deg) translateX(-0.5px);
+}
+
+/* ========================================= */
+/* Home Navbar */
+/* ========================================= */
+
+.home-navbar {
+  height: 64px;
+}
+
+.home-navbar-inner {
+  max-width: none;
+  height: 100%;
+
+  padding-left: clamp(28px, 3vw, 58px);
+  padding-right: clamp(28px, 3vw, 58px);
+}
+
+.home-brand-link,
+.home-nav-menu a {
+  text-decoration: none;
+}
+
+.home-brand-link {
+  color: rgba(255, 255, 255, 0.92);
+  font-family: "Cormorant Garamond", serif;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.3px;
+
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.home-brand-link:hover {
+  color: #FFFFFF;
+}
+
+.home-nav-menu {
+  display: flex;
+  align-items: center;
+  gap: clamp(34px, 4vw, 58px);
+}
+
+.home-nav-menu a {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+
+  color: rgba(255, 255, 255, 0.88);
+
+  font-family: 'Inter', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1;
+
+  transition:
+    color 160ms ease,
+    opacity 160ms ease;
+}
+
+.home-nav-menu a:hover,
+.home-nav-menu a:focus-visible {
+  color: #ffffff;
+  text-decoration: solid underline rgba(255, 255, 255, 0.6);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+.home-resume-label {
+  font-weight: 300;
+  font-size: 16px;
+  opacity: 0.85;
+}
+
+.home-resume-icon {
+  width: 13px;
+  height: 13px;
+  flex: 0 0 auto;
+
+  opacity: 0.85;
 }
 
 .toc-button {

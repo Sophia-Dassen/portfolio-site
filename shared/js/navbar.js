@@ -4,82 +4,94 @@ const navbar =
 const floatingTocButton =
     document.querySelector('.floating-toc-button');
 
-let lastScrollY =
-    window.scrollY;
+if (navbar) {
 
-let navbarVisible =
-    true;
+    let lastScrollY =
+        window.scrollY;
 
-let downScrollAccumulated = 0;
-let upScrollAccumulated = 0;
+    let navbarVisible =
+        true;
 
-window.addEventListener('scroll', () => {
+    let downScrollAccumulated = 0;
+    let upScrollAccumulated = 0;
 
-    const currentScrollY =
-    window.scrollY;
+    window.addEventListener('scroll', () => {
 
-    const difference =
-    currentScrollY - lastScrollY;
+        const currentScrollY =
+        window.scrollY;
 
-    // SCROLLING DOWN
-    if (difference > 0) {
+        const difference =
+        currentScrollY - lastScrollY;
 
-        downScrollAccumulated += difference;
-        upScrollAccumulated = 0;
+        // SCROLLING DOWN
+        if (difference > 0) {
 
-        if (
-            downScrollAccumulated > 20 &&
-            navbarVisible
-        ) {
+            downScrollAccumulated += difference;
+            upScrollAccumulated = 0;
 
-            navbar.classList.add(
-            'top-navbar-hidden'
-            );
+            if (
+                downScrollAccumulated > 20 &&
+                navbarVisible
+            ) {
 
-            floatingTocButton.classList.add(
-            'floating-toc-button-visible'
-            );
+                navbar.classList.add(
+                'top-navbar-hidden'
+                );
 
-            navbarVisible = false;
+                if (floatingTocButton) {
+
+                    floatingTocButton.classList.add(
+                    'floating-toc-button-visible'
+                    );
+
+                }
+
+                navbarVisible = false;
+            }
+
         }
 
-    }
-
-    // SCROLLING UP
-    else if (difference < 0) {
+        // SCROLLING UP
+        else if (difference < 0) {
     
-        upScrollAccumulated += Math.abs(difference);
-        downScrollAccumulated = 0;
+            upScrollAccumulated += Math.abs(difference);
+            downScrollAccumulated = 0;
 
-        if (
-            upScrollAccumulated > 50 &&
-            !navbarVisible
-        ) {
+            if (
+                upScrollAccumulated > 50 &&
+                !navbarVisible
+            ) {
+
+                navbar.classList.remove(
+                'top-navbar-hidden'
+                );
+
+                if (floatingTocButton) {
+
+                    floatingTocButton.classList.remove(
+                    'floating-toc-button-visible'
+                    );
+
+                }
+
+                navbarVisible = true;
+            }
+
+        }
+
+        // ALWAYS SHOW NEAR TOP
+        if (currentScrollY <= 10) {
 
             navbar.classList.remove(
-            'top-navbar-hidden'
-            );
-
-            floatingTocButton.classList.remove(
-            'floating-toc-button-visible'
+                'top-navbar-hidden'
             );
 
             navbarVisible = true;
         }
 
-    }
+        lastScrollY =
+        currentScrollY;
 
-    // ALWAYS SHOW NEAR TOP
-    if (currentScrollY <= 10) {
+    });
 
-        navbar.classList.remove(
-            'top-navbar-hidden'
-        );
-
-        navbarVisible = true;
-    }
-
-    lastScrollY =
-    currentScrollY;
-
-});
+}
