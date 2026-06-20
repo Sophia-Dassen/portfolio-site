@@ -5,6 +5,7 @@
 
 html {
   scroll-behavior: auto;
+  scrollbar-gutter: stable;
   /* scroll-padding-top: 90px; */
 }
 
@@ -187,6 +188,175 @@ img {
   flex: 0 0 auto;
 
   opacity: 0.85;
+}
+
+.home-menu-button {
+  display: none;
+}
+
+
+/* ========================================= */
+/* Mobile Navbar with Hamburger Menu */
+/* ========================================= */
+
+@media (max-width: 720px) {
+
+    body.home-menu-open {
+        overflow: hidden;
+    }
+
+    .home-navbar {
+        height: 54px;
+    }
+
+    .home-navbar-inner {
+        position: relative;
+        z-index: 1001;
+
+        height: 54px;
+
+        padding-left: 20px;
+        padding-right: 16px;
+    }
+
+    .home-brand-link {
+        position: relative;
+        z-index: 1002;
+
+        font-size: 21px;
+    }
+
+    .home-nav-menu {
+        position: fixed;
+        inset: 0;
+        z-index: 999;
+
+        width: 100%;
+        height: 100dvh;
+
+        padding-top: 192px;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 34px;
+
+        background: #031B57;
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transition:
+            opacity 180ms ease,
+            visibility 0s linear 180ms;
+    }
+
+    body.home-menu-open .home-nav-menu {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        transition:
+        opacity 180ms ease,
+        visibility 0s;
+    }
+
+    .home-nav-menu a {
+        color: #ffffff;
+
+        font-size: 22px;
+        font-weight: 500;
+        line-height: 1.15;
+    }
+
+    .home-nav-menu a:hover,
+    .home-nav-menu a:focus-visible {
+        text-decoration: none;
+    }
+
+    .home-resume-label {
+        font-size: 16px;
+        font-weight: 500;
+        opacity: 0.72;
+    }
+
+    .home-resume-icon {
+        width: 14px;
+        height: 14px;
+        opacity: 0.72;
+    }
+
+    .home-menu-button {
+        position: relative;
+        z-index: 1002;
+
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+
+        padding: 0;
+
+        background: none;
+        border: none;
+
+        color: #ffffff;
+
+        font-family: 'Inter', sans-serif;
+        cursor: pointer;
+    }
+
+    .home-menu-label {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+        letter-spacing: 0.02em;
+    }
+
+    .home-menu-icon {
+        position: relative;
+
+        width: 18px;
+        height: 16px;
+
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        flex: 0 0 auto;
+    }
+
+    .home-menu-icon span {
+        display: block;
+
+        width: 100%;
+        height: 1.5px;
+
+        background: currentColor;
+
+        transition:
+            transform 180ms ease,
+            opacity 180ms ease;
+    }
+
+    body.home-menu-open .home-menu-icon span:nth-child(1) {
+        transform: translateY(7.25px) scale(1.15) rotate(45deg);
+    }
+
+    body.home-menu-open .home-menu-icon span:nth-child(2) {
+        opacity: 0;
+    }
+
+    body.home-menu-open .home-menu-icon span:nth-child(3) {
+        transform: translateY(-7.25px) scale(1.15) rotate(-45deg);
+    }
+
+    body.home-menu-open .home-menu-label {
+      transform: translateX(2px);
+    }
+
 }
 
 .toc-button {
