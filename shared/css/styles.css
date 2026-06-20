@@ -158,12 +158,21 @@ img {
     opacity 160ms ease;
 }
 
-.home-nav-menu a:hover,
-.home-nav-menu a:focus-visible {
+.home-nav-menu a:not(.home-resume-button):hover,
+.home-nav-menu a:not(.home-resume-button):focus-visible {
   color: #ffffff;
   text-decoration: solid underline rgba(255, 255, 255, 0.6);
   text-decoration-thickness: 1px;
   text-underline-offset: 4px;
+}
+
+.home-resume-button {
+  padding-bottom: 1px;
+  border-bottom: solid 1px rgba(255, 255, 255, 0);
+}
+
+.home-resume-button:hover {
+  border-bottom: solid 1px rgba(255, 255, 255, 0.6);
 }
 
 .home-resume-label {
