@@ -1310,8 +1310,104 @@ code[class*="language-"] {
   text-align: left;
 }
 
+
 /* ========================================= */
-/* Hero Section */
+/* Home Page Hero Section */
+/* ========================================= */
+
+.home-hero-section {
+    min-height: calc(100svh - 50px);
+    
+    display: grid;
+
+    grid-template-columns:
+        /* clamp(20px, 12vw, 80px) */
+        calc(150px - 4vw)
+        minmax(0, 760px)
+        1fr;
+
+    padding-top: max(90px, 10vh);
+}
+
+.home-hero-content {
+    grid-column: 2;  
+
+    display: flex;
+    flex-direction: column;
+}
+
+.home-hero-intro {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.home-hero-title {
+    margin: 0;
+
+    display: flex;
+    flex-direction: column;
+
+    color: #2D2D3D;
+
+    font-family: 'Inter', sans-serif;
+    font-size: clamp(44px, 6.5vw, 74px);
+    font-weight: 500;
+    line-height: .96;
+    letter-spacing: 0.65px;
+
+    margin-left: -5px;
+}
+
+.home-hero-subtitle {
+    margin: 0;
+
+    color: rgba(36,36,59,.9);
+
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.5;
+}
+
+.hero-skills {
+    display: flex;
+    flex-wrap: wrap;
+
+    margin-top: clamp(72px, 7vh, 90px);
+}
+
+.hero-skill {
+    color: rgba(36, 36, 59, 0.45);
+    font-size: 14px;
+    letter-spacing: 0.2px;
+}
+
+.hero-skill:not(:last-child)::after {
+    content: "•";
+
+    margin: 0 6px;
+
+    color: rgba(36, 36, 59, 0.25);
+
+    font-size: 11px;
+}
+
+.hero-cta-wrapper {
+    margin-top: clamp(90px, 8vh, 110px);
+}
+
+
+@media (max-width: 900px) {
+
+    .home-hero-section {
+        grid-template-columns:
+            0px
+            minmax(0, 1fr)
+            0px;
+    }
+}
+
+/* ========================================= */
+/* Project Page Hero Section */
 /* ========================================= */
 
 .hero-section {
