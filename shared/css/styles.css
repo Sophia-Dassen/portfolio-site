@@ -1418,7 +1418,7 @@ code[class*="language-"] {
     padding-bottom: 20px;
 }
 
-.hero-content {
+.project-hero-content {
     display: grid;
 
     grid-template-columns: 1.07fr 1.25fr;
@@ -1446,7 +1446,7 @@ code[class*="language-"] {
 }
 
 .hero-description {
-    font-size: clamp(15px, 1.4vw, 16px);
+    font-size: clamp(15.5px, 10vw, 16px);
     line-height: 1.6;
     color: #4A4A4A;
     
@@ -1461,7 +1461,8 @@ code[class*="language-"] {
     display: block;
 }
 
-.hero-button {
+.home-hero-CTA,
+.project-page-hero-CTA {
     
     display: inline-flex;
     align-items: center;
@@ -1496,6 +1497,74 @@ code[class*="language-"] {
     align-items: center;
 
     align-self: center;
+}
+
+
+/* ==== HERO: Mobile responsiveness ==== */
+
+@media (max-width: 900px) { 
+  
+  .hero-section {
+      max-width: 740px;
+      padding-top: 48px;
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: auto;
+      margin-right: auto;
+  }
+
+  .project-hero-content {
+      display: flex;
+      flex-direction: column;
+  }
+
+  .hero-title {
+      margin-bottom: 14px;
+  }
+
+  .hero-description {
+      font-size: 15px;
+      max-width: 530px;
+      margin-bottom: 36px;
+  }
+
+  .hero-image-column {
+      width: 100%;
+      display: flex;
+      justify-content: left;
+      align-items: left;
+  }
+
+  .hero-text-column {
+      display: contents;
+  }
+
+  .hero-image {
+      max-width: 510px;
+      height: auto;
+  }
+
+  .project-hero-content .hero-button {
+      outline: none;
+      padding-left: 0;
+      padding-right: 0;
+  }
+
+  .project-hero-content .hero-cta-wrapper {
+      margin-top: max(30px, 6vw);
+  }
+
+  .hero-text-content {
+      order: 1;
+  }
+
+  .hero-image-column {
+      order: 2;
+  }
+
+  .hero-cta-wrapper {
+      order: 3;
+  }
 }
 
 /* ========================================= */
@@ -1752,64 +1821,6 @@ code[class*="language-"] {
     .page-wrapper {
         padding-left: clamp(20px, 5vw, 40px);
         padding-right: clamp(20px, 5vw, 40px);
-    }
-
-    .hero-section {
-        max-width: 740px;
-        padding-top: 48px;
-        padding-left: 0;
-        padding-right: 0;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    .hero-content {
-        display: flex;
-        flex-direction: column;
-        gap: 32px;
-    }
-    
-    .hero-title {
-    margin-bottom: 20px;
-    }
-    
-    .hero-description {
-    font-size: 15px;
-    max-width: 530px;
-    }
-
-    .hero-image-column {
-    width: 100%;
-    display: flex;
-    justify-content: left;
-    align-items: left;
-    }
-    
-    .hero-text-column {
-    display: contents;
-    }
-
-    .hero-image {
-    max-width: 510px;
-    height: auto;
-    }
-    
-    .hero-button {
-    outline: none;
-    padding-left: 0;
-    padding-right: 0;
-    }
-    
-    .hero-text-content {
-    order: 1;
-    }
-    
-    .hero-image-column {
-    order: 2;
-    }
-    
-    .hero-cta-wrapper {
-    order: 3;
     }
 
 }    
