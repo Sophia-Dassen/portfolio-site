@@ -70,29 +70,68 @@ function smoothScrollTo(
 
 }
 
-architectureButton.addEventListener(
+function setupSmoothScroll( 
+    buttonSelector, 
+    targetSelector, 
+    offset = 20, 
+    duration = 950 
+) {
 
-    'click',
-
-    event => {
-
-        event.preventDefault();
-
-        const targetY =
-
-            architectureSection
-                .getBoundingClientRect()
-                .top
-
-            + window.pageYOffset
-
-            - 20;
-
-        smoothScrollTo(
-            targetY,
-            950
+    const button = 
+        document.querySelector( 
+            buttonSelector 
+        ); 
+    
+    const target = 
+        document.querySelector( 
+            targetSelector 
         );
-
+    
+    if ( 
+        !button || 
+        !target 
+    ) { 
+        return; 
     }
 
+
+    button.addEventListener(
+
+        'click',
+
+        event => {
+
+            event.preventDefault();
+
+            const targetY =
+
+                architectureSection
+                    .getBoundingClientRect()
+                    .top
+
+                + window.pageYOffset
+
+                - offset;
+
+            smoothScrollTo(
+                targetY,
+                duration
+            );
+
+        }
+
+    );
+
+}
+
+// Home page CTA 
+setupSmoothScroll( 
+    '.home-hero-CTA', 
+    '#projects' 
+);
+
+// Project page CTA 
+setupSmoothScroll( 
+    '.project-page-hero-CTA', 
+    '#problem-statement' 
 );
