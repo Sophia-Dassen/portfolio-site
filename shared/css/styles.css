@@ -1322,7 +1322,7 @@ code[class*="language-"] {
 
     grid-template-columns:
         /* clamp(20px, 12vw, 80px) */
-        calc(150px - 4vw)
+        calc(130px - 6vw)
         minmax(0, 760px)
         1fr;
 
