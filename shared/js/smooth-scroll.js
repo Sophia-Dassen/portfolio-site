@@ -1,13 +1,3 @@
-const architectureButton =
-    document.getElementById(
-        'scroll-to-architecture'
-    );
-
-const architectureSection =
-    document.getElementById(
-        'problem-statement'
-    );
-
 const ease = BezierEasing(.23,.02,.07,.94);
 
 function smoothScrollTo(
@@ -105,7 +95,7 @@ function setupSmoothScroll(
 
             const targetY =
 
-                architectureSection
+                target
                     .getBoundingClientRect()
                     .top
 
