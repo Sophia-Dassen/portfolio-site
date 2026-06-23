@@ -688,6 +688,23 @@ html.toc-open {
   padding-left: 52px;
 }
 
+/* ========================================= */
+/* Home Page: Page Layout */
+/* ========================================= */
+
+.hero-container,
+.projects-container,
+.education-container,
+.about-container {
+    max-width: 1400px;
+
+    margin: 0 auto;
+
+    padding-inline:
+        clamp(20px, 4vw, 60px);
+}
+
+
 
 /* ========================================= */
 /* Main Page Layout */
@@ -1317,6 +1334,13 @@ code[class*="language-"] {
 
 .home-hero-section {
     min-height: calc(100svh - 50px);
+
+    width: 100%;
+    max-width: 1050px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 40px;
+    padding-right: 40px;
     
     display: grid;
 
