@@ -125,3 +125,43 @@ setupSmoothScroll(
     '.project-page-hero-CTA', 
     '#problem-statement' 
 );
+
+
+window.addEventListener(
+    'load',
+    () => {
+
+        const params =
+            new URLSearchParams(
+                window.location.search
+            );
+
+        if (
+            params.get('scroll')
+            === 'projects'
+        ) {
+
+            const projectsSection =
+                document.querySelector(
+                    '#projects'
+                );
+
+            const targetY =
+
+                projectsSection
+                    .getBoundingClientRect()
+                    .top
+
+                + window.pageYOffset
+
+                - 20;
+
+            smoothScrollTo(
+                targetY,
+                1100
+            );
+
+        }
+
+    }
+);
