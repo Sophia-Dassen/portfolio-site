@@ -1941,7 +1941,7 @@ code[class*="language-"] {
     grid-template-columns:
         repeat(2,minmax(0,1fr));
 
-    row-gap: 24px;
+    row-gap: clamp(30px, 4vw, 50px);
     column-gap: clamp(30px, 4vw, 50px);
 
     background-color: #f5f5f5;
@@ -2210,7 +2210,7 @@ code[class*="language-"] {
         grid-template-columns:
             1fr;
 
-        gap: 24px;
+        gap: 40px;
     }
 
     .university-layout {
