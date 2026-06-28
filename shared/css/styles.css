@@ -723,6 +723,14 @@ html.toc-open {
         clamp(20px, 4vw, 60px);
 }
 
+.section-title {
+  font-size: 44px;
+  font-weight: 600;
+  margin-top: 52px;
+  margin-bottom: 72px;
+  margin-left: -2px;
+}
+
 
 /* ========================================= */
 /* Main Page Layout */
