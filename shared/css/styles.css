@@ -6,7 +6,6 @@
 html {
   scroll-behavior: auto;
   scrollbar-gutter: stable;
-  /* scroll-padding-top: 90px; */
 }
 
 body {

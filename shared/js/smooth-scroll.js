@@ -114,6 +114,81 @@ function setupSmoothScroll(
 
 }
 
+function setupSmoothAnchorLinks(
+    selector = 'a[href^="#"]',
+    offset = 75,
+    duration = 950
+) {
+
+    const links = document.querySelectorAll(
+        selector
+    );
+
+    links.forEach(link => {
+
+        link.addEventListener(
+
+            'click',
+
+            event => {
+
+                const href =
+                    link.getAttribute('href');
+
+                if (
+                    href === '#'
+                ) {
+                    return;
+                }
+
+                const target =
+                    document.querySelector(
+                        href
+                    );
+
+                if (
+                    !target
+                ) {
+                    return;
+                }
+
+                event.preventDefault();
+
+                const targetY =
+
+                    target
+                        .getBoundingClientRect()
+                        .top
+
+                    + window.pageYOffset
+
+                    - offset;
+
+                smoothScrollTo(
+                    targetY,
+                    duration
+                );
+
+            }
+
+        );
+
+    });
+
+}
+
+// Home page navigation links
+if (
+    document.body.classList.contains(
+        'home-page'
+    )
+) {
+
+    setupSmoothAnchorLinks();
+
+}
+
+
 // Home page CTA 
 setupSmoothScroll( 
     '.home-hero-CTA', 
