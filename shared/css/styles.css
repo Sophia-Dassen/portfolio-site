@@ -1820,6 +1820,445 @@ code[class*="language-"] {
 
 
 /* ========================================= */
+/* HOME PAGE: EDUCATION SECTION  */
+/* ========================================= */
+
+.education-container {
+    margin-top: 92px;
+}
+
+.education-accent {
+
+    width: 8px;
+
+    background: #0b4cff;
+
+    flex-shrink: 0;
+
+}
+
+.education-header {
+
+    position: relative;
+
+    display: flex;
+
+    padding-left: 22px;
+
+    margin-bottom: 24px;
+
+}
+
+.education-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 4px;
+    bottom: 4px;
+
+    width: 8px;
+
+    background: #0b4cff;
+
+}
+
+.education-header-content {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+
+}
+
+.education-heading {
+
+    margin: 0;
+    line-height: 1.3;
+
+    font-size: 24px;
+    font-weight: 600;
+
+}
+
+.education-subtitle {
+
+    margin: 0;
+    margin-bottom: 2px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: #383838;
+
+}
+
+.education-date {
+
+    margin: 0;
+    line-height: 1.2;
+    font-size: 13.5px;
+    font-weight: 400;
+
+    color: #848484;
+
+}
+
+.data-analyst-training-intro {
+  padding-left: 22px;
+  max-width: 670px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: #606060;
+  margin-bottom: 40px;
+}
+
+.competency-grid {
+
+    display: grid;
+
+    padding-left: clamp(20px, calc(0.0825 * 100vw - 17.125px), 90px);
+    padding-right: clamp(20px, calc(0.0825 * 100vw - 17.125px), 90px);
+    padding-top: 50px;
+    padding-bottom: 50px;
+    
+    margin-left: auto;
+    margin-right: auto;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    row-gap: 24px;
+    column-gap: clamp(30px, 4vw, 50px);
+
+    background-color: #f5f5f5;
+
+}
+
+.competency-item {
+
+    padding:
+
+        26px
+        26px
+        32px
+        26px;
+
+    background-color: #FFFFFF;
+
+}
+
+.competency-number {
+
+    color: #8fa1d0;
+
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.07em;
+    line-height: 1;
+
+    margin-bottom: 6px;
+
+}
+
+.competency-title {
+
+    margin: 0;
+
+    color: #24243b;
+
+    font-size: 19px;
+
+    font-weight: 700;
+
+    letter-spacing: -0.005em;
+
+}
+
+.competency-intro {
+
+    margin-top: 10px;
+
+    font-size: 15px;
+    line-height: 1.6;
+
+    color: #505050;
+
+}
+
+.competency-project-label {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: #76819b;
+
+    margin-top: 24px;
+    margin-bottom: 4px;
+}
+
+.competency-projects {
+
+    margin-top: 8px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+}
+
+.competency-project {
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 2px;
+
+}
+
+.competency-project-link {
+    color: #2857d9;
+    font-weight: 500;
+    line-height: 1.6;
+
+    text-decoration-color: transparent;
+    transition: text-decoration-color 160ms ease;
+}
+
+.competency-project-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.competency-project-link-icon {
+    width: 10px;
+    height: 10px;
+
+    margin-left: 1px;
+
+    transition: transform 160ms ease;
+}
+
+.competency-project-link-new-tab-icon {
+
+    width: 12px;
+    height: 12px;
+
+    color: currentColor;
+
+    margin-left: 1px;
+
+    transform: translateY(0.5px);
+}
+
+.competency-project-link:hover
+.competency-project-link-icon {
+
+    transform: translateX(3px);
+
+}
+
+.competency-project-no-link {
+    color: #323232;
+    font-weight: 500;
+}
+
+.competency-project-outcomes {
+    list-style: none;
+    padding-left: 0;
+    margin-top: 2px;
+    margin-bottom: 2px;
+}
+
+.competency-project-outcomes li {
+    position: relative;
+
+    padding-left: 12px;
+
+    color: #505050;
+
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.competency-project-outcomes li::before {
+
+    content: "•";
+
+    position: absolute;
+
+    left: 0;
+
+    top: 1px;
+
+    font-size: 13px;
+
+    color: #76819b;
+
+}
+
+/* === University subsection === */
+
+.university-layout {
+
+    display: grid;
+
+    grid-template-columns:
+        298px
+        minmax(0,1fr);
+
+    column-gap: clamp(36px, calc(0.16 * 100vw - 108px), 100px);
+
+    align-items: start;
+
+    max-width: 1200px;
+
+    margin-top: 112px;
+
+}
+
+.university-link {
+    text-decoration: none;
+
+    margin: 0;
+    margin-bottom: 2px;
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+
+    color: #383838;
+} 
+
+.university-link:hover {
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+}
+
+.uni-info {
+    
+    display: grid;
+    grid-template-columns:
+        0.91fr
+        1fr;
+
+    column-gap: clamp(45px, calc(0.0875 * 100vw - 33.75px), 80px);
+
+    margin-top: 4px; 
+    padding-left: clamp(22px, calc(0.045 * 100vw - 18.5px), 40px);
+    padding-right: clamp(26px, calc(0.16 * 100vw - 118px), 90px);
+
+    background: #F9F9F9;
+}
+
+.university-card {
+
+    position: relative;
+
+    height: 100%;
+
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+    color: #4D4D4D;
+    font-size: 15px;
+}
+
+.university-card-title {
+
+    margin: 0 0 20px;
+    padding-bottom: 3px;
+
+    width: 100%;
+
+    border-bottom: 2px solid rgba(20, 70, 208, 0.55);
+
+    color: #24243b;
+
+    font-size: clamp(17px, calc(0.0025 * 100vw + 14.75px), 18px);
+    font-weight: 500;
+
+}
+
+.home-page-list {
+
+    margin: 0;
+    padding-left: 20px;
+
+}
+
+
+/* Education section: Responsiveness */
+
+@media (max-width:900px) {
+
+    .competency-grid {
+
+        grid-template-columns:
+            1fr;
+
+        gap: 24px;
+    }
+
+    .university-layout {
+
+        grid-template-columns: 1fr;
+
+        gap: 24px;
+
+    }
+
+    .uni-info {
+        gap: clamp(70px, 10vw, 150px);
+    }
+
+}
+
+@media (max-width:768px) {
+    
+    .uni-info {
+        grid-template-columns:
+            1fr;
+    }
+
+    .university-card-title {
+        width: max-content;
+        padding-right: 16px;
+
+    }
+}
+
+@media (max-width: 450px) {
+    
+    .competency-grid {
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
+
+    .education-header {
+        padding-left: 20px;
+    }
+
+    .data-analyst-training-intro {
+        padding-left: 20px;
+        margin-bottom: 32px;
+    }
+
+    .competency-item {
+        padding: 24px 18px;
+    }
+}
+
+
+/* ========================================= */
 /* Validation table */
 /* ========================================= */
 
