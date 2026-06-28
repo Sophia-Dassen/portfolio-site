@@ -1660,6 +1660,8 @@ code[class*="language-"] {
     transition:
         filter 160ms ease;
 
+    border: 1px solid rgba(0,0,0,.08);
+
 }
 
 .project-card-body {
@@ -1673,7 +1675,7 @@ code[class*="language-"] {
         20px 20px 24px;
 
     border-top:
-        1px solid rgba(0,0,0,.08);
+        1px solid rgba(0,0,0,.04);
 
 }
 
