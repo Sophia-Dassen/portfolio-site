@@ -44,14 +44,15 @@ img {
 
 .home-navbar {
   height: 64px;
+  width: 100%;
 }
 
 .home-navbar-inner {
-  max-width: none;
+  width: 100%;
   height: 100%;
 
-  padding-left: clamp(28px, 3vw, 58px);
-  padding-right: clamp(28px, 3vw, 58px);
+  margin-left: auto;
+  margin-right: auto;
 
   display: flex;
   align-items: center;
@@ -163,8 +164,6 @@ img {
 
         height: 54px;
 
-        padding-left: 20px;
-        padding-right: 16px;
     }
 
     .home-brand-link {
@@ -692,11 +691,11 @@ html.toc-open {
 /* Home Page: Page Layout */
 /* ========================================= */
 
-.hero-container,
 .projects-container,
 .education-container,
-.about-container {
-    max-width: 1400px;
+.about-container,
+.footer-content {
+    max-width: 1270px;
 
     margin: 0 auto;
 
@@ -704,6 +703,25 @@ html.toc-open {
         clamp(20px, 4vw, 60px);
 }
 
+.home-hero-section {
+    max-width: 1270px;
+}
+
+.home-hero-container {
+    max-width: 1070px;
+
+    width: 100%;
+
+    margin: 0 auto;
+
+    padding-inline:
+        clamp(20px, 4vw, 60px);
+}
+
+.home-navbar {
+    padding-inline:
+        clamp(20px, 4vw, 60px);
+}
 
 
 /* ========================================= */
@@ -1604,10 +1622,6 @@ code[class*="language-"] {
     width: 100%;
 }
 
-.projects-container {
-  max-width: 1300px;
-}
-
 .projects-grid {
 
     display: grid;
@@ -1967,11 +1981,8 @@ code[class*="language-"] {
 
 .footer-content {
 
-    max-width: 1050px;
-
-    margin: 0 auto;
-
-    padding: 36px 36px 36px 24px;
+    padding-top: 36px;
+    padding-bottom: 36px;
 
     display: flex;
 
@@ -2039,11 +2050,10 @@ code[class*="language-"] {
 /* ========================================= */
 @media (max-width: 900px) {
 
-    .home-navbar-inner,
     .project-navbar-inner {
         padding-left: clamp(20px, 5vw, 40px);
         padding-right: clamp(20px, 5vw, 40px);
-    }
+    } 
 
     .footer-content {
         padding-left: clamp(20px, 5vw, 40px);
