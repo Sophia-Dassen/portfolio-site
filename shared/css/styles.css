@@ -1695,7 +1695,8 @@ code[class*="language-"] {
 
 .project-card-title {
 
-    margin: 0;
+    margin-top: 4px;
+    margin-bottom: 0;
 
     color: #24243b;
 
@@ -1703,11 +1704,13 @@ code[class*="language-"] {
     font-weight: 600;
     line-height: 1.2;
 
+    min-height: 2.6em; /* enough for two-lines */
+
 }
 
 .project-card-description {
 
-    margin-top: 18px;
+    margin-top: 10px;
     margin-bottom: 18px;
 
     color: rgba(36,36,59,.8);
