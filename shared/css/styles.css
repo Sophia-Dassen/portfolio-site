@@ -186,7 +186,7 @@ img {
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
-        gap: 34px;
+        gap: 36px;
 
         background: #031B57;
 
@@ -213,7 +213,7 @@ img {
         color: #ffffff;
 
         font-size: 22px;
-        font-weight: 500;
+        font-weight: 400;
         line-height: 1.15;
     }
 
@@ -223,14 +223,16 @@ img {
     }
 
     .home-resume-label {
-        font-size: 16px;
-        font-weight: 500;
+        font-size: 18px;
+        font-weight: 300;
+        letter-spacing: 0.01em;
         opacity: 0.72;
     }
 
     .home-resume-icon {
-        width: 14px;
-        height: 14px;
+        width: 15px;
+        height: 15px;
+        transform: translateY(1px);
         opacity: 0.72;
     }
 
@@ -255,7 +257,7 @@ img {
 
     .home-menu-label {
         font-size: 12px;
-        font-weight: 600;
+        font-weight: 400;
         line-height: 1;
         text-transform: uppercase;
         letter-spacing: 0.02em;
