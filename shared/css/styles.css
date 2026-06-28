@@ -2031,8 +2031,7 @@ code[class*="language-"] {
     font-weight: 500;
     line-height: 1.6;
 
-    text-decoration-color: transparent;
-    transition: text-decoration-color 160ms ease;
+    text-decoration: none;
 }
 
 .competency-project-link:hover {
