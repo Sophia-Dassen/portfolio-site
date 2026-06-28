@@ -1683,7 +1683,7 @@ code[class*="language-"] {
 
     color: #24243b;
 
-    font-size: clamp(20px, vw, 22px);
+    font-size: clamp(20px, 2vw, 21px);
     font-weight: 600;
     line-height: 1.2;
 
