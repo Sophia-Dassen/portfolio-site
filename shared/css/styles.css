@@ -1708,7 +1708,7 @@ code[class*="language-"] {
     margin-top: 10px;
     margin-bottom: 18px;
 
-    color: rgba(36,36,59,.8);
+    color: rgba(36,36,59,.85);
 
     line-height: 1.65;
 
@@ -1910,7 +1910,7 @@ code[class*="language-"] {
   max-width: 670px;
   font-size: 15px;
   line-height: 1.55;
-  color: #606060;
+  color: rgba(36,36,59,.75);
   margin-bottom: 40px;
 }
 
@@ -1983,7 +1983,7 @@ code[class*="language-"] {
     font-size: 15px;
     line-height: 1.6;
 
-    color: #505050;
+    color: rgba(36,36,59,.85);
 
 }
 
@@ -2075,7 +2075,7 @@ code[class*="language-"] {
 
     padding-left: 12px;
 
-    color: #505050;
+    color: rgba(36,36,59,.85);
 
     font-size: 15px;
     line-height: 1.65;
@@ -2161,7 +2161,8 @@ code[class*="language-"] {
     padding-top: 20px;
     padding-bottom: 20px;
 
-    color: #4D4D4D;
+    color: rgba(36,36,59,.85);;
+  
     font-size: 15px;
 }
 
@@ -2285,7 +2286,7 @@ code[class*="language-"] {
 
     padding: 14px 28px 30px 28px;
 
-    color: #363636;
+    color: rgba(36,36,59,.85);
 
 }
 
@@ -2327,7 +2328,7 @@ code[class*="language-"] {
 
     line-height: 1.75;
 
-    color: #585858;
+    color: rgba(36,36,59,.8);
 
 }
 
