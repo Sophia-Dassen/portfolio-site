@@ -1724,6 +1724,7 @@ code[class*="language-"] {
     align-items: center;
     gap: 6px;
 
+    font-weight: 500;
     color: #0b4cff;
 
     text-decoration: none;
