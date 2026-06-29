@@ -1819,8 +1819,9 @@ code[class*="language-"] {
     }
 
     .project-card-title {
-        min-height: 1.4em;
+        min-height: auto;
         margin-top: 12px;
+        margin-bottom: 6px;
     }
 
 }
