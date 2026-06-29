@@ -1917,8 +1917,7 @@ code[class*="language-"] {
 
 .data-analyst-training-intro {
   padding-left: 22px;
-  max-width: 670px;
-  font-size: 15px;
+  max-width: 680px;
   line-height: 1.55;
   color: rgba(36,36,59,.75);
   margin-bottom: 40px;
@@ -1990,7 +1989,6 @@ code[class*="language-"] {
 
     margin-top: 10px;
 
-    font-size: 15px;
     line-height: 1.6;
 
     color: rgba(36,36,59,.85);
@@ -2088,7 +2086,6 @@ code[class*="language-"] {
 
     color: rgba(36,36,59,.85);
 
-    font-size: 15px;
     line-height: 1.65;
 }
 
@@ -2175,7 +2172,6 @@ code[class*="language-"] {
 
     color: rgba(36,36,59,.85);;
   
-    font-size: 15px;
 }
 
 .university-card-title {
