@@ -2082,7 +2082,7 @@ code[class*="language-"] {
     position: relative;
 
     padding-left: 12px;
-    padding-bottom: 4px;
+    padding-top: 4px;
 
     color: rgba(36,36,59,.85);
 
@@ -2247,8 +2247,10 @@ code[class*="language-"] {
         width: 100vw;
         margin-left: calc(50% - 50vw);
 
-        padding-top: 26px;
-        padding-bottom: 26px;
+        padding-top: 38px;
+        padding-bottom: 38px;
+
+        gap: 54px;
     }
 
     .education-header {
@@ -2261,7 +2263,7 @@ code[class*="language-"] {
     }
 
     .competency-item {
-        padding: 24px 18px;
+        padding: 24px 18px 28px 18px;
     }
 }
 
