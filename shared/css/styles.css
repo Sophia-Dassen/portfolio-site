@@ -2159,6 +2159,7 @@ code[class*="language-"] {
     margin-top: 4px; 
     padding-left: clamp(22px, calc(0.045 * 100vw - 18.5px), 40px);
     padding-right: clamp(26px, calc(0.16 * 100vw - 118px), 90px);
+    padding-bottom: 12px;
 
     background: #F9F9F9;
 }
@@ -2232,11 +2233,14 @@ code[class*="language-"] {
     .uni-info {
         grid-template-columns:
             1fr;
+        
+        gap: 10px;
     }
 
     .university-card-title {
         width: max-content;
         padding-right: 16px;
+        margin-bottom: 16px;
 
     }
 }
