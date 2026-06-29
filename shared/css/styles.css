@@ -1671,11 +1671,6 @@ code[class*="language-"] {
 
     display: block;
 
-    transition:
-        filter 160ms ease;
-
-    border: 1px solid rgba(0,0,0,.08);
-
 }
 
 .project-card-body {
@@ -1689,7 +1684,7 @@ code[class*="language-"] {
         20px 20px 24px;
 
     border-top:
-        1px solid rgba(0,0,0,.04);
+        1px solid rgba(0,0,0,.08);
 
 }
 
@@ -1736,13 +1731,6 @@ code[class*="language-"] {
 }
 
 /* Project card hover effects */
-
-/* .project-card:hover {
-
-    box-shadow:
-        inset 0 0 0 1px #0b4cff;
-
-} */
 
 .project-card:hover::before {
 
