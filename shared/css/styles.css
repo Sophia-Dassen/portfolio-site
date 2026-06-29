@@ -2391,7 +2391,10 @@ code[class*="language-"] {
 @media (max-width: 520px) {
 
     .about-summary-card {
-        padding: 4px 22px 22px 22px;
+        padding: 4px 20px 20px 20px;
+
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
     }
 
     .about-summary-grid {
