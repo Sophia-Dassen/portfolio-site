@@ -1814,6 +1814,15 @@ code[class*="language-"] {
 
     }
 
+    .project-card-body {
+        padding: 10px 18px 24px 18px;
+    }
+
+    .project-card-title {
+        min-height: 1.4em;
+        margin-top: 12px;
+    }
+
 }
 
 
@@ -2075,6 +2084,7 @@ code[class*="language-"] {
     position: relative;
 
     padding-left: 12px;
+    padding-bottom: 4px;
 
     color: rgba(36,36,59,.85);
 
