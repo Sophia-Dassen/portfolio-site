@@ -201,6 +201,12 @@ setupSmoothScroll(
     '#problem-statement' 
 );
 
+// Project page CTA 
+setupSmoothScroll( 
+    '.project-page-hero-CTA', 
+    '#project-overview' 
+);
+
 
 window.addEventListener(
     'load',
