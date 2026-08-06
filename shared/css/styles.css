@@ -2610,8 +2610,13 @@ code[class*="language-"] {
     font-size: 14px;
     line-height: 1.5;
     color: #7a7a7a;
+}
+
+
+.home-page-footer-copyright {
     padding-right: 54px;
 }
+
 
 .footer-info {
     display: flex;
@@ -2683,12 +2688,16 @@ code[class*="language-"] {
     .footer-copyright {
         padding-right: 0px;
     }
+
+    .home-page-footer-copyright {
+        padding-right: 0px;
+    }
 }
 
 @media (max-width: 900px) {
     
     .footer-copyright {
-        max-width: 170px;
+        max-width: 160px;
     }
 }
 
