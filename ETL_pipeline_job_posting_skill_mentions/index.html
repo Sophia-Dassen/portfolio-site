@@ -434,11 +434,203 @@
                 1. Real & Synthetic Input Datasets
             </h5>
 
-            <p class="section-intro">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            <p>
+                The ETL pipeline takes a collection of annotated job postings as input and extracts the metadata and highlighted 
+                skill mentions from each posting. The original dataset comprises 36 job postings that are kept private in order 
+                to comply with copyright and Terms of Service regulations.  
             </p>
+
+            <p class="section-intro">
+                Instead, a functionally identical dataset of 36 synthetic job postings was carefully engineered, producing the 
+                same pipeline output as the real dataset. The synthetic dataset ensures that the end-to-end ETL pipeline is publicly 
+                shareable and fully reproducible, without exposing copyrighted material.
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/real_fictional_job_posting_demo.webp"
+                    data-pswp-width="4500"
+                    data-pswp-height="3000"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/real_fictional_job_posting_demo.webp"
+                    alt="Example of diversely phrased skill mentions mapping to a single preliminary 
+                    skill"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 2. Example of a real versus synthetic job posting producing the same extracted skill mentions, 
+                    demonstrating pipeline consistency and copyright compliance.
+                </div>
+
+            </div>
+
         </section>
-    
+
+         <!-- ======================= SUBSECTION 1.1 ======================= -->
+
+        <section class="subsection" id="highlighted-skill-mentions">
+            
+            <h6>
+                Highlighted skill mentions
+            </h6>
+
+            <p> 
+                Skill mentions are identified and highlighted manually within each job posting, using turquoise to highlight 
+                hard skills and pink to highlight soft skills.
+            </p>
+
+            <p>
+                A Python script parses and extracts the highlighted skill mentions, independent of the surrounding sentence 
+                context. Consequently, a real and a synthetic job posting can produce an identical set of extracted skill 
+                mentions despite having different surrounding text. 
+            </p>
+
+            <p>
+                In the example below, the pipeline extracts the record <code>JP_25, analysing and interpreting data, hard</code> from both the real 
+                and synthetic job postings, while the synthetic version avoids redistributing copyrighted material.
+            </p>
+
+            <ul class="bullet-point-list">
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>JP_25 (real):</b> You will specialise in <span class="turquoise-highlight">analysing and interpreting data</span>, providing actionable insights to 
+                        inform strategic decisions for both our clients & internal operations.
+                    </span>
+                </li>
+            
+                <li>
+                    <span class="bullet">&bull;</span>
+                    <span class="bullet-text">
+                        <b>JP_25 (synthetic):</b> Assist in <span class="turquoise-highlight">analysing and interpreting data</span> using SQL and Power BI to leverage data to drive 
+                        insights that inform strategic decisions.
+                    </span>
+                </li>
+            </ul>      
+            
+        </section>
+
+        <!-- ======================= SUBSECTION 1.2 ======================= -->
+
+        <section class="subsection" id="synthetic-dataset-engineering">
+            
+            <h6>
+                Synthetic dataset engineering
+            </h6>
+
+            <p>
+                For every real job posting (36 in total), a synthetic version was carefully constructed. A fictional company 
+                name and a new location is assigned to every real company in the original dataset. This enables company-level 
+                frequency analysis without exposing real organizations.
+            </p>
+
+            <p>
+                The Python extraction script would first process the real job posting, and the list of extracted skill mentions 
+                would then be used to create a synthetic job posting using the following Chat GPT prompt template:
+            </p>
+
+            <div class="expandable-code-block collapsed" style="margin-top: -28px;">
+
+                <div class="code-block long-code-block" style="--collapsed-height: 160px;">
+
+                    <pre><code style="text-wrap: wrap;">Generate a completely fictional Data Analyst job posting.
+
+- The company, business context, and wording must be entirely fictional.
+- Do not imitate or paraphrase any existing job posting.
+- Use every supplied skill phrase exactly once, preserving the wording of each phrase.
+- Do not introduce additional identifiable hard or soft skills beyond those supplied.
+- Make the posting read naturally.
+- The primary objective is to produce a realistic job posting. Preserve every supplied skill phrase exactly once, but prioritize natural, recruiter-like wording when connecting the supplied phrases. Ordinary connecting language, fictional business context, and general job posting phrases may be added freely.
+
+// List of skills, e.g.:
+SQL
+Python
+stakeholder management
+analytical mindset
+multiple tasks simultaneously
+data models
+...
+
+</code></pre>
+
+                </div>
+        
+                <button class="expand-code-button">
+
+                    <span class="expand-code-label"></span>
+
+                    <svg
+                        class="expand-code-chevron"
+                        preserveAspectRatio="xMidYMid meet"
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="6 8.59 12 7.41"
+                        aria-hidden="true"
+                    >
+                        <path
+                            fill="currentColor"
+                            d="M16.59 8.59 12 13.17 7.41 8.59 6 10l6 6 6-6z"
+                        ></path>
+                    </svg>
+
+                </button>
+
+            </div>
+
+        </section>
+
+        <!-- ======================= SUBSECTION 1.3 ======================= -->
+
+        <section class="subsection" id="verification-of-dataset-equivalence">
+            
+            <h6>
+                Verification of dataset equivalence
+            </h6>
+
+            <p>
+                The equivalence between the real and synthetic datasets is verified using an Excel workbook that imports 
+                the extracted CSV files from both datasets and checks that every skill mention extracted from the synthetic 
+                dataset exists in the real dataset, and vice versa.  
+            </p>
+
+            <!-- ===== IMAGE ===== -->
+
+            <div class="image-container large-image">
+
+                <a
+                    href="assets/images/verify_extracted_skills.webp"
+                    data-pswp-width="1232"
+                    data-pswp-height="810"
+                    target="_blank"
+                >
+
+                <img
+                    src="assets/images/verify_extracted_skills.webp"
+                    alt="Example of diversely phrased skill mentions mapping to a single preliminary 
+                    skill"
+                    class="zoomable-image bordered-image"
+                    loading="lazy"
+                >
+
+                </a>
+
+                <div class="image-caption">
+                    Figure 3. Excel workbook verifying that the real and synthetic job posting datasets produce
+                    identical ETL pipeline outputs.
+                </div>
+
+            </div>
+        
+        </section>
 
         <!-- ======================= SECTION 2 ======================= --> 
         
@@ -573,6 +765,18 @@
 
             <a href="#real-and-synthetic-input-datasets" class="toc-link toc-link-level-0">
                 1. Real & Synthetic Input Datasets 
+            </a>
+
+            <a href="#highlighted-skill-mentions" class="toc-link toc-link-level-1">
+                Highlighted skill mentions 
+            </a>
+
+            <a href="#synthetic-dataset-engineering" class="toc-link toc-link-level-1">
+                Synthetic dataset engineering  
+            </a>
+
+            <a href="#verification-of-dataset-equivalence" class="toc-link toc-link-level-1">
+                Verification of dataset equivalence  
             </a>
 
             <a href="#skill-standardization-workbook" class="toc-link toc-link-level-0">
